@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:focusableInTouchMode="true"
-    android:background="@color/bg_primary_color"
+    android:background="@color/bg_accent_color"
     tools:context=".LoginActivity">
 
 
