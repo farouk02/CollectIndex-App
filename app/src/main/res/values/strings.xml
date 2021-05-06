@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">ADE</string>
+    <string name="app_name">Collect Index</string>
+    <string name="login_email_hint">Username OR Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="alreadyHaveAccount">Already
+        \nhave an
+        \nAccount?</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="new_user_register_now">New user? Register Now</string>
+    <string name="follow_us">Follow Us</string>
+    <string name="logo_ade">logo ADE</string>
+    <string name="goto_register_activity">goto register Activity</string>
+    <string name="goto_website">goto website</string>
+    <string name="goto_facebook_page">goto facebook page</string>
 </resources>
