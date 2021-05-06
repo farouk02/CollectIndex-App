@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Collect Index</string>
+
+    <string name="firstname_hint">Nom</string>
+    <string name="lastname_hint">Prenom</string>
+    <string name="mobile_number_hint">Numero de telephone</string>
+    <string name="email_hint">Nom d\'utilisateur OU adresse mail</string>
+    <string name="password_hint">mot de pass</string>
+    <string name="forgot_password">mot de pass oblier?</string>
+    <string name="login">Sign In</string>
+    <string name="register">Registrer</string>
+    <string name="new_user_register_now">Nouveau Utilisateur? Registrer</string>
+    <string name="already_have_an_account">deja a un compte?</string>
+    <string name="follow_us">Suivi nous!</string>
+    <string name="alreadyHaveAccount">deja
+        \na un
+        \ncompte?</string>
+    <string name="your_first_step_with_us">C\'est
+        \nvotre premier
+        \npas avec
+        \nnous!</string>
+</resources>

@@ -46,4 +46,5 @@ public class LoginActivity extends AppCompatActivity {
     public void gotoSite(View view) {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ade.dz/e-paiement/")));
     }
+
 }
