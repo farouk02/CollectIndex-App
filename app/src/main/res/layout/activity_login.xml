@@ -55,12 +55,17 @@
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:autofillHints="faroukious0@gmail.com" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/errorInputText"
+                    android:text="@string/field_required"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputPassword"
-                style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin">
+                style="@style/parent">
 
                 <EditText
                     android:id="@+id/editTextPassword"
@@ -69,6 +74,12 @@
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:autofillHints="" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/errorInputText"
+                    android:text="@string/field_required"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -169,7 +180,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="11dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
         android:onClick="onRegisterClick"
         android:src="@drawable/ic_add_img"

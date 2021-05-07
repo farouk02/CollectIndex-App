@@ -23,4 +23,7 @@
     <string name="register">Register</string>
     <string name="lastname_hint">LastName</string>
     <string name="firstname_hint">FirstName</string>
+    <string name="client_code">Client Number</string>
+    <string name="counter_num">counter Number</string>
+    <string name="field_required">field required</string>
 </resources>

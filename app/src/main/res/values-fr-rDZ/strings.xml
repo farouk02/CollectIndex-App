@@ -20,4 +20,7 @@
         \nvotre premier
         \npas avec
         \nnous!</string>
+    <string name="client_code">Client code</string>
+    <string name="counter_num">Numero du Compteur</string>
+    <string name="field_required" />
 </resources>

@@ -50,4 +50,11 @@
         <item name="android:paddingLeft">5dp</item>
     </style>
 
+    <style name="errorInputText">
+        <item name="android:textColor">@color/errorColor</item>
+        <item name="android:textSize">@dimen/smallSize</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:translationY">-5dp</item>
+    </style>
+
 </resources>
