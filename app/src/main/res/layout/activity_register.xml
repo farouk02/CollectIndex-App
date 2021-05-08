@@ -49,11 +49,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="20dp"
                     android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputClientNum"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
                         style="@style/parent">
                         <EditText
                             android:id="@+id/editTextClientNum"
@@ -62,72 +64,61 @@
                             android:inputType="textPersonName"
                             android:maxLines="1"
                             android:autofillHints="" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/errorInputText"
-                            android:text="@string/field_required"
-                            />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputCounterNum"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
                         style="@style/parent">
                         <EditText
                             android:id="@+id/editTextCounterNum"
                             style="@style/modifiedEditText"
                             android:hint="@string/counter_num"
-                            android:inputType="textPersonName"
+                            android:inputType="textAutoComplete"
                             android:maxLines="1"
                             android:autofillHints="" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/errorInputText"
-                            android:text="@string/field_required"
-                            />
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputEmail"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
                         style="@style/parent">
+
                         <EditText
                             android:id="@+id/editTextEmail"
                             style="@style/modifiedEditText"
-                            android:hint="@string/email_hint"
+                            android:hint= "@string/email_hint"
                             android:inputType="textEmailAddress"
                             android:maxLines="1"
                             android:autofillHints="" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/errorInputText"
-                            android:text="@string/field_required"
-                            />
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputMobile"
+                        android:id="@+id/textInputUsername"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
                         style="@style/parent">
                         <EditText
-                            android:id="@+id/editTextMobile"
+                            android:id="@+id/editTextUsername"
                             style="@style/modifiedEditText"
-                            android:hint="@string/mobile_number_hint"
-                            android:inputType="phone"
+                            android:hint="@string/username_hint"
+                            android:inputType="textAutoComplete"
                             android:maxLines="1"
-                            android:autofillHints="" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/errorInputText"
-                            android:text="@string/field_required"
-                            />
+                            android:autofillHints="@string/username_hint" />
+
                     </com.google.android.material.textfield.TextInputLayout>
+
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputPassword"
+                        app:errorEnabled="true"
+                        app:passwordToggleEnabled="true"
                         style="@style/parent">
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/editTextPassword"
                             style="@style/modifiedEditText"
                             android:hint="@string/password_hint"
@@ -139,13 +130,15 @@
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
                         android:id="@+id/cirRegisterButton"
                         style="@style/loginButton"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:layout_marginTop="@dimen/loginViewsMargin"
                         android:text="@string/register"
                         app:initialCornerAngle="27dp"
                         app:spinning_bar_color="#FFF"
                         app:spinning_bar_padding="6dp"
                         app:spinning_bar_width="4dp" />
+
                     <TextView
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin"
@@ -158,6 +151,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,7 +167,7 @@
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="6"
+                    android:layout_weight="4"
                     android:text="@string/follow_us"
                     android:textAlignment="center"
                     android:textColor="@color/whiteTextColor"
@@ -184,11 +178,12 @@
                     android:layout_weight="3"
                     android:background="@color/whiteTextColor" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="@dimen/textEditMargin"
+                android:layout_marginBottom="@dimen/layoutMargin"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="wrap_content"
@@ -202,9 +197,18 @@
                     android:src="@drawable/ic_hero_site"
                     android:contentDescription="@string/goto_website" />
             </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>
+
+    <View
+        android:layout_width="11dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_side_bg" />
 
     <ImageView
         android:layout_width="wrap_content"

@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:gravity="center"
-    android:focusableInTouchMode="true"
     android:background="@color/bg_primary_color"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
     tools:context=".LoginActivity">
 
     <ScrollView
@@ -39,47 +39,49 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_hero"
-                    android:contentDescription="@string/logo_ade" />
+                    android:contentDescription="@string/logo_ade"
+                    android:src="@drawable/ic_hero" />
             </RelativeLayout>
 
+            <TextView
+                android:id="@+id/textViewErrorLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/loginViewsMargin"
+                android:textColor="@color/errorColor"
+                android:visibility="invisible"
+                android:textSize="@dimen/newsMoreTextSize"
+                android:text="@string/username_or_password_incorrect"/>
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputEmail"
+                android:id="@+id/textInputLoginUsername"
                 style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin">
+                app:endIconMode="clear_text"
+                app:errorEnabled="true">
 
                 <EditText
-                    android:id="@+id/editTextEmail"
+                    android:id="@+id/editTextLoginUsername"
                     style="@style/modifiedEditText"
-                    android:hint="@string/email_hint"
+                    android:autofillHints="faroukious0@gmail.com"
+                    android:hint="@string/username_hint"
                     android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:autofillHints="faroukious0@gmail.com" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/errorInputText"
-                    android:text="@string/field_required"
-                    />
+                    android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputPassword"
-                style="@style/parent">
+                android:id="@+id/textInputLoginPassword"
+                style="@style/parent"
+                android:layout_marginTop="@dimen/textEditMargin"
+                app:passwordToggleEnabled="true">
 
                 <EditText
-                    android:id="@+id/editTextPassword"
+                    android:id="@+id/editTextLoginPassword"
                     style="@style/modifiedEditText"
+                    android:autofillHints=""
                     android:hint="@string/password_hint"
                     android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:autofillHints="" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/errorInputText"
-                    android:text="@string/field_required"
-                    />
+                    android:maxLines="1" />
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -114,7 +116,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="@dimen/layoutMargin"
                 android:gravity="center"
                 android:weightSum="12">
 
@@ -128,7 +130,7 @@
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_weight="4"
                     android:text="@string/follow_us"
                     android:textAlignment="center"
                     android:textSize="14sp" />
@@ -144,7 +146,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/textEditMargin"
+                android:layout_marginBottom="@dimen/layoutMargin"
                 android:gravity="center">
 
                 <ImageView
@@ -162,6 +165,7 @@
                     android:src="@drawable/ic_hero_site"
                     android:contentDescription="@string/goto_website" />
             </LinearLayout>
+
 
         </LinearLayout>
 
@@ -182,8 +186,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
+        android:contentDescription="@string/goto_register_activity"
         android:onClick="onRegisterClick"
-        android:src="@drawable/ic_add_img"
-        android:contentDescription="@string/goto_register_activity" />
+        android:src="@drawable/ic_add_img" />
 
 </RelativeLayout>

@@ -1,7 +1,18 @@
 <resources>
     <string name="app_name">Collect Index</string>
-    <string name="email_hint">Username OR Email</string>
+
+
+    <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
+    <string name="register">Register</string>
+    <string name="next">Next</string>
+    <string name="client_code">Client Number</string>
+    <string name="counter_num">Counter Number</string>
+    <string name="mobile_number_hint">Mobile Number</string>
+    <string name="email_hint" >Email</string>
+
+
+
     <string name="alreadyHaveAccount">Already
         \nhave an
         \nAccount?</string>
@@ -18,12 +29,18 @@
         \nyour first
         \nstep with
         \nus!</string>
-    <string name="mobile_number_hint">Mobile Number</string>
     <string name="already_have_an_account">Already have an account?</string>
-    <string name="register">Register</string>
-    <string name="lastname_hint">LastName</string>
-    <string name="firstname_hint">FirstName</string>
-    <string name="client_code">Client Number</string>
-    <string name="counter_num">counter Number</string>
-    <string name="field_required">field required</string>
+
+
+    <!-- VALIDATION -->
+
+    <string name="field_required">%1$s required</string>
+    <string name="field_equal" >%1$s must be equal to %2$d characters</string>
+    <string name="field_inder" >%1$s must be less than %2$d characters</string>
+    <string name="field_greater" >%1$s must be greater than %2$d characters</string>
+    <string name="field_between" >%1$s must be between %2$d and %3$d characters</string>
+    <string name="username_or_password_incorrect">Username or Password incorrect!</string>
+    <string name="email_invalid" >Invalid Email</string>
+    <string name="field_at_least" >%1$s must be at least %2$d characters</string>
+    <string name="password_requirement" >At least 1 lowercase, 1 uppercase, 1 number, no spaces.</string>
 </resources>

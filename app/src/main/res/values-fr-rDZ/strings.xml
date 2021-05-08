@@ -2,11 +2,9 @@
 <resources>
     <string name="app_name">Collect Index</string>
 
-    <string name="firstname_hint">Nom</string>
-    <string name="lastname_hint">Prenom</string>
     <string name="mobile_number_hint">Numero de telephone</string>
-    <string name="email_hint">Nom d\'utilisateur OU adresse mail</string>
-    <string name="password_hint">mot de pass</string>
+    <string name="username_hint">Nom d\'utilisateur OU adresse mail</string>
+    <string name="password_hint">Mot de pass</string>
     <string name="forgot_password">mot de pass oblier?</string>
     <string name="login">Sign In</string>
     <string name="register">Registrer</string>
@@ -22,5 +20,16 @@
         \nnous!</string>
     <string name="client_code">Client code</string>
     <string name="counter_num">Numero du Compteur</string>
-    <string name="field_required" />
+    <string name="field_required" >%1$s obligatoire</string>
+    <string name="field_equal">"%1$s doit être égal à %2$d caractères "</string>
+    <string name="field_inder">%1$s doit être inferieur à %2$d caractères</string>
+    <string name="field_greater">%1$s doit être superieur à %2$d caractères</string>
+    <string name="field_between">%1$s doit être entre %2$d et %3$d caractères</string>
+    <string name="next">Continue</string>
+    <string name="username_or_password_incorrect">Nom d\'utilisateur ou Mot de pass incorrect!</string>
+    <string name="email_hint">Address mail</string>
+
+    <string name="email_invalid">Address mail invalide</string>
+    <string name="field_at_least">%1$s doit être au minimun %2$d caractères</string>
+    <string name="password_requirement">au minimun1 lettre majuscule, 1 lettre minuscule, 1 numero et pas des espaces.</string>
 </resources>
