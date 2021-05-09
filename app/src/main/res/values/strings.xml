@@ -9,8 +9,7 @@
     <string name="client_code">Client Number</string>
     <string name="counter_num">Counter Number</string>
     <string name="mobile_number_hint">Mobile Number</string>
-    <string name="email_hint" >Email</string>
-
+    <string name="email_hint">Email</string>
 
 
     <string name="alreadyHaveAccount">Already
@@ -35,12 +34,13 @@
     <!-- VALIDATION -->
 
     <string name="field_required">%1$s required</string>
-    <string name="field_equal" >%1$s must be equal to %2$d characters</string>
-    <string name="field_inder" >%1$s must be less than %2$d characters</string>
-    <string name="field_greater" >%1$s must be greater than %2$d characters</string>
-    <string name="field_between" >%1$s must be between %2$d and %3$d characters</string>
+    <string name="field_equal">%1$s must contain %2$d characters</string>
+    <string name="field_inder">%1$s must be less than %2$d characters</string>
+    <string name="field_greater">%1$s must be greater than %2$d characters</string>
+    <string name="field_between">%1$s must be between %2$d and %3$d characters</string>
     <string name="username_or_password_incorrect">Username or Password incorrect!</string>
-    <string name="email_invalid" >Invalid Email</string>
-    <string name="field_at_least" >%1$s must be at least %2$d characters</string>
-    <string name="password_requirement" >At least 1 lowercase, 1 uppercase, 1 number, no spaces.</string>
+    <string name="field_invalid">Invalid %1$s</string>
+    <string name="field_at_least">%1$s must contain at least %2$d characters</string>
+    <string name="password_requirement">At least 1 lowercase, 1 uppercase and 1 number.</string>
+    <string name="no_spaces" >%1$s mustn\'t contain spaces</string>
 </resources>

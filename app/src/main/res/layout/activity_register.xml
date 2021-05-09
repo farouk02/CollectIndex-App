@@ -61,24 +61,10 @@
                             android:id="@+id/editTextClientNum"
                             style="@style/modifiedEditText"
                             android:hint="@string/client_code"
-                            android:inputType="textPersonName"
+                            android:inputType="textCapCharacters"
+                            android:maxLength="12"
                             android:maxLines="1"
                             android:autofillHints="" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputCounterNum"
-                        app:endIconMode="clear_text"
-                        app:errorEnabled="true"
-                        style="@style/parent">
-                        <EditText
-                            android:id="@+id/editTextCounterNum"
-                            style="@style/modifiedEditText"
-                            android:hint="@string/counter_num"
-                            android:inputType="textAutoComplete"
-                            android:maxLines="1"
-                            android:autofillHints="" />
-
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -178,7 +164,6 @@
                     android:layout_weight="3"
                     android:background="@color/whiteTextColor" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

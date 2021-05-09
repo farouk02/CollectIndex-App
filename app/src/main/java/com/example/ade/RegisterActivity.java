@@ -4,15 +4,19 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -22,36 +26,31 @@ import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private boolean counterValidate;
-    private boolean clientValidate;
-    private boolean emailValidate = false;
-    private boolean usernameValidate;
-    private boolean passwordValidate;
-
-
-    TextInputLayout counter;
     TextInputLayout client;
     TextInputLayout email;
     TextInputLayout username;
     TextInputLayout password;
-
     CircularProgressButton register;
 
-    public static boolean isValidEmail(CharSequence target) {
+    private boolean clientValidate = false;
+    private boolean emailValidate = false;
+    private boolean usernameValidate = false;
+    private boolean passwordValidate = false;
+
+    public static boolean isEmailValid(CharSequence target) {
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 
-    public boolean isValidPassword(final String password) {
+
+    public boolean isNotValid(final String STR, final String PATTERN) {
 
         Pattern pattern;
         Matcher matcher;
 
-        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
+        pattern = Pattern.compile(PATTERN);
+        matcher = pattern.matcher(STR);
 
-        pattern = Pattern.compile(PASSWORD_PATTERN);
-        matcher = pattern.matcher(password);
-
-        return matcher.matches();
+        return !matcher.matches();
 
     }
 
@@ -62,7 +61,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
-        counter = findViewById(R.id.textInputCounterNum);
         client = findViewById(R.id.textInputClientNum);
         email = findViewById(R.id.textInputEmail);
         username = findViewById(R.id.textInputUsername);
@@ -70,50 +68,29 @@ public class RegisterActivity extends AppCompatActivity {
         register = findViewById(R.id.cirRegisterButton);
 
 
-        Objects.requireNonNull(counter.getEditText()).addTextChangedListener(new TextWatcher() {
-
-            public void afterTextChanged(Editable s) {
-
-                int length = counter.getEditText().getText().toString().length();
-
-                if (counter.getEditText().getText().toString().isEmpty()) {
-                    counter.setError(getString(R.string.field_required, getString(R.string.counter_num)));
-                    counterValidate = false;
-                } else if (length != 6) {
-                    counter.setError(getString(R.string.field_equal, getString(R.string.counter_num),6));
-                    counterValidate = false;
-                } else {
-                    counter.setError(null);
-                    counterValidate = true;
-                }
-
-            }
-
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-        });
-
         Objects.requireNonNull(client.getEditText()).addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
 
-                int length = client.getEditText().getText().toString().length();
+                String str = client.getEditText().getText().toString();
 
                 if (client.getEditText().getText().toString().isEmpty()) {
                     client.setError(getString(R.string.field_required, getString(R.string.client_code)));
                     clientValidate = false;
-                } else if (length <= 6) {
-                    client.setError(getString(R.string.field_equal, getString(R.string.client_code),6));
+                } else if(isNotValid(Objects.requireNonNull(client.getEditText()).getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                    client.setError(getString(R.string.no_spaces, getString(R.string.client_code)));
+                    clientValidate = false;
+                } else if (str.length() != 12) {
+                    client.setError(getString(R.string.field_equal, getString(R.string.client_code), 12));
                     clientValidate = false;
                 } else {
-                    client.setError(null);
                     clientValidate = true;
                 }
+
+                if (clientValidate) {
+                    client.setError(null);
+                }
+
 
             }
 
@@ -122,20 +99,22 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
         });
 
         Objects.requireNonNull(email.getEditText()).addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
-                boolean matched = isValidEmail(email.getEditText().getText().toString().trim());
+                boolean matched = isEmailValid(email.getEditText().getText().toString().trim());
 
                 if (email.getEditText().getText().toString().isEmpty()) {
                     email.setError(getString(R.string.field_required, getString(R.string.email_hint)));
                     emailValidate = false;
+                } else if(isNotValid(email.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                    email.setError(getString(R.string.no_spaces, getString(R.string.email_hint)));
+                    emailValidate = false;
                 } else if (!matched) {
-                    email.setError(getString(R.string.email_invalid));
+                    email.setError(getString(R.string.field_invalid, getString(R.string.email_hint)));
                     emailValidate = false;
                 } else {
                     emailValidate = true;
@@ -167,8 +146,11 @@ public class RegisterActivity extends AppCompatActivity {
                 if (username.getEditText().getText().toString().isEmpty()) {
                     username.setError(getString(R.string.field_required, getString(R.string.username_hint)));
                     usernameValidate = false;
+                } else if(isNotValid(username.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                    username.setError(getString(R.string.no_spaces, getString(R.string.username_hint)));
+                    usernameValidate = false;
                 } else if (length <= 6) {
-                    username.setError(getString(R.string.field_equal, getString(R.string.username_hint),6));
+                    username.setError(getString(R.string.field_equal, getString(R.string.username_hint), 6));
                     usernameValidate = false;
                 } else {
                     usernameValidate = true;
@@ -192,16 +174,17 @@ public class RegisterActivity extends AppCompatActivity {
 
             public void afterTextChanged(Editable s) {
 
-                boolean matched = isValidPassword(password.getEditText().getText().toString());
-
                 if (password.getEditText().getText().toString().isEmpty()) {
                     password.setError(getString(R.string.field_required, getString(R.string.password_hint)));
                     passwordValidate = false;
-                } else if (password.getEditText().getText().toString().length() < 8) {
-                    password.setError(getString(R.string.field_at_least, getString(R.string.password_hint),8));
+                } else if(isNotValid(password.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                    password.setError(getString(R.string.no_spaces, getString(R.string.password_hint)));
                     passwordValidate = false;
-                }  else if (!matched) {
+                } else if(isNotValid(password.getEditText().getText().toString().trim(), "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{3,}$")){
                     password.setError(getString(R.string.password_requirement));
+                    passwordValidate = false;
+                } else if (password.getEditText().getText().toString().length() < 8) {
+                    password.setError(getString(R.string.field_at_least, getString(R.string.password_hint), 8));
                     passwordValidate = false;
                 } else {
                     passwordValidate = true;
@@ -221,22 +204,57 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        /*register.setOnClickListener(v -> {
-            if (counterValidate) {
-                if (clientValidate) {
-                    if (phoneValidate) {
-                        if (usernameValidate) {
-                            if (passwordValidate) {
-                                //send request
-                            } else {
+        register.setOnClickListener(v -> {
 
-                            }
+            String client, email, username, password;
+            client = this.client.getEditText().getText().toString().toUpperCase();
+            email = this.email.getEditText().getText().toString();
+            username = this.username.getEditText().getText().toString().toLowerCase();
+            password = this.password.getEditText().getText().toString();
+
+            if (clientValidate) {
+                if (emailValidate) {
+                    if (usernameValidate) {
+                        if (passwordValidate) {
+                            //send request
+                            Handler handler = new Handler(Looper.getMainLooper());
+                            handler.post(() -> {
+                                //Starting Write and Read data with URL
+                                //Creating array for parameters
+                                String[] field = new String[4];
+                                field[0] = "code_client";
+                                field[1] = "email";
+                                field[2] = "username";
+                                field[3] = "password";
+                                //Creating array for data
+                                String[] data = new String[4];
+                                data[0] = client;
+                                data[1] = email;
+                                data[0] = username;
+                                data[1] = password;
+                                PutData putData = new PutData("http://192.168.1.2/login/register.php", "POST", field, data);
+                                if (putData.startPut()) {
+                                    if (putData.onComplete()) {
+                                        String result = putData.getResult();
+                                        //End ProgressBar (Set visibility to GONE)
+                                        if (result.equals("Register Success")){
+                                            startActivity(new Intent(this, LoginActivity.class));
+                                            finish();
+                                        }
+                                        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                                //End Write and Read data with URL
+                            });
+                            Toast.makeText(this, "sending request", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, "fields invalid", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
             }
+
         });
-        */
 
     }
 

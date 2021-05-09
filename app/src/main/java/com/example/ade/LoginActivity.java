@@ -5,20 +5,38 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 
 public class LoginActivity extends AppCompatActivity {
+
+    public boolean isNotValid(final String STR, final String PATTERN) {
+
+        Pattern pattern;
+        Matcher matcher;
+
+        pattern = Pattern.compile(PATTERN);
+        matcher = pattern.matcher(STR);
+
+        return !matcher.matches();
+
+    }
 
     TextInputLayout username;
     TextInputLayout password;
@@ -51,6 +69,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (username.getEditText().getText().toString().isEmpty()) {
                     username.setError(getString(R.string.field_required, getString(R.string.username_hint)));
                     usernameValidate = false;
+                } else if(isNotValid(username.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                    username.setError(getString(R.string.no_spaces, getString(R.string.username_hint)));
+                    usernameValidate = false;
                 } else {
                     usernameValidate = true;
                 }
@@ -78,6 +99,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (password.getEditText().getText().toString().isEmpty()) {
                     password.setError(getString(R.string.field_required, getString(R.string.password_hint)));
                     passwordValidate = false;
+                } else if(isNotValid(password.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                    password.setError(getString(R.string.no_spaces, getString(R.string.password_hint)));
+                    passwordValidate = false;
                 } else {
                     passwordValidate = true;
                 }
@@ -99,13 +123,45 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         loginButton.setOnClickListener(v -> {
-            /*if (passwordValidate && usernameValidate) {
 
-                //send request
+            String username,password;
+            username = this.username.getEditText().getText().toString().toLowerCase();
+            password = this.password.getEditText().getText().toString();
 
-            } else {
-                error.setVisibility(View.VISIBLE);
-            }*/
+            if (usernameValidate) {
+                if (passwordValidate) {
+
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(() -> {
+                        //Starting Write and Read data with URL
+                        //Creating array for parameters
+                        String[] field = new String[2];
+                        field[0] = "username";
+                        field[1] = "password";
+                        //Creating array for data
+                        String[] data = new String[2];
+                        data[0] = username;
+                        data[1] = password;
+                        PutData putData = new PutData("http://192.168.1.2/login/login.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                String result = putData.getResult();
+                                //End ProgressBar (Set visibility to GONE)
+                                if (result.equals("Login Success")){
+                                    startActivity(new Intent(this, MainActivity.class));
+                                    finish();
+                                }
+                                Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        //End Write and Read data with URL
+                    });
+                    Toast.makeText(this, "sending request", Toast.LENGTH_SHORT).show();
+                }else {
+                    error.setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "fields invalid", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
 
     }

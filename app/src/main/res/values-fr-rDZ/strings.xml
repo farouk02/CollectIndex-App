@@ -21,7 +21,7 @@
     <string name="client_code">Client code</string>
     <string name="counter_num">Numero du Compteur</string>
     <string name="field_required" >%1$s obligatoire</string>
-    <string name="field_equal">"%1$s doit être égal à %2$d caractères "</string>
+    <string name="field_equal">"%1$s doit être contien %2$d caractères "</string>
     <string name="field_inder">%1$s doit être inferieur à %2$d caractères</string>
     <string name="field_greater">%1$s doit être superieur à %2$d caractères</string>
     <string name="field_between">%1$s doit être entre %2$d et %3$d caractères</string>
@@ -29,7 +29,8 @@
     <string name="username_or_password_incorrect">Nom d\'utilisateur ou Mot de pass incorrect!</string>
     <string name="email_hint">Address mail</string>
 
-    <string name="email_invalid">Address mail invalide</string>
-    <string name="field_at_least">%1$s doit être au minimun %2$d caractères</string>
-    <string name="password_requirement">au minimun1 lettre majuscule, 1 lettre minuscule, 1 numero et pas des espaces.</string>
+    <string name="field_invalid">%1$s invalide</string>
+    <string name="field_at_least">%1$s doit être contien au minimun %2$d caractères</string>
+    <string name="password_requirement">au minimun1 lettre majuscule, 1 lettre minuscule et 1 numero.</string>
+    <string name="no_spaces">%1$s doit pas contien des espaces</string>
 </resources>
