@@ -246,7 +246,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 }
                                 //End Write and Read data with URL
                             });
-                            Toast.makeText(this, "sending request", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(this, "fields invalid", Toast.LENGTH_SHORT).show();
                         }
