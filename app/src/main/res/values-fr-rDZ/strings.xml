@@ -33,4 +33,10 @@
     <string name="field_at_least">%1$s doit être contien au minimun %2$d caractères</string>
     <string name="password_requirement">au minimun1 lettre majuscule, 1 lettre minuscule et 1 numero.</string>
     <string name="no_spaces">%1$s doit pas contien des espaces</string>
+    <string name="fields_invalid">Les chemain invalide</string>
+    <string name="field_already_token">%1$s est deja utiliser!</string>
+    <string name="something_wrong">Mall fonction.  SVP veuillez réessayer plus tard!</string>
+    <string name="already_signed_up">vous avez déjà inscrit!</string>
+    <string name="field_inccorect">%1$s incorrecte!</string>
+    <string name="fields_required">All fields are required</string>
 </resources>

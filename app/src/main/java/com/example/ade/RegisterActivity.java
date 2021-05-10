@@ -1,5 +1,6 @@
 package com.example.ade;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,7 @@ import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    TextView error;
     TextInputLayout client;
     TextInputLayout email;
     TextInputLayout username;
@@ -54,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +65,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
 
+        error = findViewById(R.id.textViewErrorRegister);
         client = findViewById(R.id.textInputClientNum);
         email = findViewById(R.id.textInputEmail);
         username = findViewById(R.id.textInputUsername);
@@ -77,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (client.getEditText().getText().toString().isEmpty()) {
                     client.setError(getString(R.string.field_required, getString(R.string.client_code)));
                     clientValidate = false;
-                } else if(isNotValid(Objects.requireNonNull(client.getEditText()).getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                } else if (isNotValid(Objects.requireNonNull(client.getEditText()).getText().toString().trim(), "^(?=\\S+$).{1,}$")) {
                     client.setError(getString(R.string.no_spaces, getString(R.string.client_code)));
                     clientValidate = false;
                 } else if (str.length() != 12) {
@@ -110,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (email.getEditText().getText().toString().isEmpty()) {
                     email.setError(getString(R.string.field_required, getString(R.string.email_hint)));
                     emailValidate = false;
-                } else if(isNotValid(email.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                } else if (isNotValid(email.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")) {
                     email.setError(getString(R.string.no_spaces, getString(R.string.email_hint)));
                     emailValidate = false;
                 } else if (!matched) {
@@ -146,7 +151,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (username.getEditText().getText().toString().isEmpty()) {
                     username.setError(getString(R.string.field_required, getString(R.string.username_hint)));
                     usernameValidate = false;
-                } else if(isNotValid(username.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                } else if (isNotValid(username.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")) {
                     username.setError(getString(R.string.no_spaces, getString(R.string.username_hint)));
                     usernameValidate = false;
                 } else if (length <= 6) {
@@ -177,10 +182,10 @@ public class RegisterActivity extends AppCompatActivity {
                 if (password.getEditText().getText().toString().isEmpty()) {
                     password.setError(getString(R.string.field_required, getString(R.string.password_hint)));
                     passwordValidate = false;
-                } else if(isNotValid(password.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                } else if (isNotValid(password.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")) {
                     password.setError(getString(R.string.no_spaces, getString(R.string.password_hint)));
                     passwordValidate = false;
-                } else if(isNotValid(password.getEditText().getText().toString().trim(), "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{3,}$")){
+                } else if (isNotValid(password.getEditText().getText().toString().trim(), "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{3,}$")) {
                     password.setError(getString(R.string.password_requirement));
                     passwordValidate = false;
                 } else if (password.getEditText().getText().toString().length() < 8) {
@@ -208,49 +213,64 @@ public class RegisterActivity extends AppCompatActivity {
 
             String client, email, username, password;
             client = this.client.getEditText().getText().toString().toUpperCase();
-            email = this.email.getEditText().getText().toString();
+            email = this.email.getEditText().getText().toString().toLowerCase();
             username = this.username.getEditText().getText().toString().toLowerCase();
             password = this.password.getEditText().getText().toString();
 
-            if (clientValidate) {
-                if (emailValidate) {
-                    if (usernameValidate) {
-                        if (passwordValidate) {
-                            //send request
-                            Handler handler = new Handler(Looper.getMainLooper());
-                            handler.post(() -> {
-                                //Starting Write and Read data with URL
-                                //Creating array for parameters
-                                String[] field = new String[4];
-                                field[0] = "code_client";
-                                field[1] = "email";
-                                field[2] = "username";
-                                field[3] = "password";
-                                //Creating array for data
-                                String[] data = new String[4];
-                                data[0] = client;
-                                data[1] = email;
-                                data[0] = username;
-                                data[1] = password;
-                                PutData putData = new PutData("http://192.168.1.2/login/register.php", "POST", field, data);
-                                if (putData.startPut()) {
-                                    if (putData.onComplete()) {
-                                        String result = putData.getResult();
-                                        //End ProgressBar (Set visibility to GONE)
-                                        if (result.equals("Register Success")){
-                                            startActivity(new Intent(this, LoginActivity.class));
-                                            finish();
-                                        }
-                                        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                                //End Write and Read data with URL
-                            });
-                        } else {
-                            Toast.makeText(this, "fields invalid", Toast.LENGTH_SHORT).show();
+
+            if (clientValidate && emailValidate && usernameValidate && passwordValidate) {
+                //send request
+                Toast.makeText(this, "send request", Toast.LENGTH_SHORT).show();
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(() -> {
+                    //Starting Write and Read data with URL
+                    //Creating array for parameters
+                    String[] field = new String[4];
+                    field[0] = "code_client";
+                    field[1] = "email";
+                    field[2] = "username";
+                    field[3] = "password";
+                    //Creating array for data
+                    String[] data = new String[4];
+                    data[0] = client;
+                    data[1] = email;
+                    data[2] = username;
+                    data[3] = password;
+                    PutData putData = new PutData(Initialize.HOST_NAME + "/signup.php", "POST", field, data);
+                    if (putData.startPut()) {
+                        if (putData.onComplete()) {
+                            String result = putData.getResult();
+                            //End ProgressBar (Set visibility to GONE)
+                            if (result.equals("1")) {
+                                startActivity(new Intent(this, LoginActivity.class));
+                                finish();
+                            } else if (result.equals("0")) {
+                                error.setText(getString(R.string.something_wrong));
+                                error.setVisibility(View.VISIBLE);
+                            } else if (result.equals("2")) {
+                                error.setText(getString(R.string.field_already_token, getString(R.string.email_hint)));
+                                error.setVisibility(View.VISIBLE);
+                            } else if (result.equals("3")) {
+                                error.setText(getString(R.string.field_already_token, getString(R.string.username_hint)));
+                                error.setVisibility(View.VISIBLE);
+                            } else if (result.equals("4")) {
+                                error.setText(getString(R.string.already_signed_up));
+                                error.setVisibility(View.VISIBLE);
+                            } else if (result.equals("5")) {
+                                error.setText(getString(R.string.field_inccorect, getString(R.string.client_code)));
+                                error.setVisibility(View.VISIBLE);
+                            } else if (result.equals("6")) {
+                                error.setText(getString(R.string.fields_required));
+                                error.setVisibility(View.VISIBLE);
+                            }
+                            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
                         }
                     }
-                }
+                    //End Write and Read data with URL
+                });
+            } else {
+                error.setText(R.string.fields_invalid);
+                error.setVisibility(View.VISIBLE);
             }
 
         });

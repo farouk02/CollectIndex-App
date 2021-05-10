@@ -142,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                         String[] data = new String[2];
                         data[0] = username;
                         data[1] = password;
-                        PutData putData = new PutData("http://192.168.1.2/login/login.php", "POST", field, data);
+                        PutData putData = new PutData(Initialize.HOST_NAME + "/login.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
                                 String result = putData.getResult();
@@ -150,7 +150,15 @@ public class LoginActivity extends AppCompatActivity {
                                 if (result.equals("Login Success")){
                                     startActivity(new Intent(this, MainActivity.class));
                                     finish();
+                                } else if (result.equals("2")) {
+                                    error.setText(getString(R.string.username_or_password_incorrect));
+                                    error.setVisibility(View.VISIBLE);
+                                } else if (result.equals("3")) {
+                                    error.setText(getString(R.string.fields_required));
+                                    error.setVisibility(View.VISIBLE);
                                 }
+                                error.setText(result);
+                                error.setVisibility(View.VISIBLE);
                                 Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
                             }
                         }

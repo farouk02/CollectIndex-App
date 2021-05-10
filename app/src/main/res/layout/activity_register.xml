@@ -52,6 +52,16 @@
                     android:layout_margin="20dp"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/textViewErrorRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:textColor="@color/errorColor"
+                        android:visibility="invisible"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:text="@string/username_or_password_incorrect"/>
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputClientNum"
                         app:endIconMode="clear_text"

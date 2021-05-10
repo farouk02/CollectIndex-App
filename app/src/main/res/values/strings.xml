@@ -38,9 +38,15 @@
     <string name="field_inder">%1$s must be less than %2$d characters</string>
     <string name="field_greater">%1$s must be greater than %2$d characters</string>
     <string name="field_between">%1$s must be between %2$d and %3$d characters</string>
-    <string name="username_or_password_incorrect">Username or Password incorrect!</string>
+    <string name="username_or_password_incorrect">Username or Password wrong!</string>
     <string name="field_invalid">Invalid %1$s</string>
     <string name="field_at_least">%1$s must contain at least %2$d characters</string>
     <string name="password_requirement">At least 1 lowercase, 1 uppercase and 1 number.</string>
-    <string name="no_spaces" >%1$s mustn\'t contain spaces</string>
+    <string name="no_spaces">%1$s mustn\'t contain spaces</string>
+    <string name="fields_invalid">Fields invalid</string>
+    <string name="field_already_token">%1$s is already token!</string>
+    <string name="something_wrong" >Something wrong. Please try again later!</string>
+    <string name="already_signed_up">you are already Signed Up</string>
+    <string name="field_inccorect">%1$s incorrect</string>
+    <string name="fields_required">All fields are required</string>
 </resources>
