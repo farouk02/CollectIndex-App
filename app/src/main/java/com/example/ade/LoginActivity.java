@@ -147,17 +147,22 @@ public class LoginActivity extends AppCompatActivity {
                             if (putData.onComplete()) {
                                 String result = putData.getResult();
                                 //End ProgressBar (Set visibility to GONE)
-                                if (result.equals("Login Success")){
-                                    startActivity(new Intent(this, MainActivity.class));
-                                    finish();
-                                } else if (result.equals("2")) {
+                                if (result.equals("2")) {
                                     error.setText(getString(R.string.username_or_password_incorrect));
                                     error.setVisibility(View.VISIBLE);
                                 } else if (result.equals("3")) {
                                     error.setText(getString(R.string.fields_required));
                                     error.setVisibility(View.VISIBLE);
+                                } else{
+                                    Intent intent = new Intent(this, MainActivity.class);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("code_client", result);
+                                    intent.putExtras(bundle);
+                                    overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
+                                    startActivity(intent);
+                                    finish();
                                 }
-                                error.setText(result);
+                                    error.setText(result);
                                 error.setVisibility(View.VISIBLE);
                                 Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
                             }

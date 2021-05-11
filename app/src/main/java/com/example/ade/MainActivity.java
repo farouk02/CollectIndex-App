@@ -18,11 +18,6 @@ public class MainActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
         setContentView(R.layout.activity_main);
-        startActivity(new Intent(this, LoginActivity.class));
-
-        overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
-        
-        setContentView(R.layout.activity_main);
     }
 
     public void gotoFb(View view) {
