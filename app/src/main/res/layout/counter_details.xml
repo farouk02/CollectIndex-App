@@ -56,6 +56,77 @@
                     android:letterSpacing="0.15"
                     android:text="ADE13 121514"/>
             </LinearLayout>
+            <LinearLayout
+                style="@style/viewParent"
+                android:gravity="fill_horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    style="@style/viewParent"
+                    android:layout_gravity="start"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/viewParent"
+                        android:layout_marginTop="@dimen/textEditMargin"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:textColor="@color/whiteTextColor"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.01"
+                        android:text="@string/old_index"/>
+                    <androidx.cardview.widget.CardView
+                        style="@style/viewParent"
+                        app:cardCornerRadius="@dimen/radius_card">
+                        <LinearLayout
+                            style="@style/viewParent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/oldIndex"
+                                style="@style/viewParent"
+                                android:layout_gravity="center"
+                                android:layout_marginHorizontal="@dimen/textEditMargin"
+                                android:textSize="@dimen/newsMoreTextSize"
+                                android:textColor="@color/darkTextColor"
+                                android:textStyle="bold"
+                                android:letterSpacing="0.15"
+                                android:text="121514"/>
+                            <TextView
+                                android:id="@+id/oldIndexDate"
+                                style="@style/viewParent"
+                                android:layout_marginHorizontal="@dimen/textEditMargin"
+                                android:textSize="@dimen/newsMoreTextSize"
+                                android:textColor="@color/darkTextColor"
+                                android:textStyle="bold"
+                                android:text="01/04/2021"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/viewParent"
+                    android:gravity="center"
+                    android:layout_gravity="end"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/viewParent"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:textColor="@color/whiteTextColor"
+                        android:layout_marginTop="@dimen/textEditMargin"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.01"
+                        android:text="@string/address"/>
+                    <TextView
+                        android:id="@+id/newIndex"
+                        style="@style/viewParent"
+                        android:layout_margin="@dimen/textEditMargin"
+                        android:textSize="@dimen/newsMoreTextSize"
+                        android:textColor="@color/whiteTextColor"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.15"
+                        android:text="ADE13 121514"/>
+                </LinearLayout>
+            </LinearLayout>
+
 
         </LinearLayout>
 

@@ -40,4 +40,5 @@
     <string name="field_inccorect">%1$s incorrecte!</string>
     <string name="fields_required">All fields are required</string>
     <string name="address">Addresse</string>
+    <string name="old_index">Ancien index</string>
 </resources>
