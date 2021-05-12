@@ -153,17 +153,16 @@ public class LoginActivity extends AppCompatActivity {
                                 } else if (result.equals("3")) {
                                     error.setText(getString(R.string.fields_required));
                                     error.setVisibility(View.VISIBLE);
-                                } else{
+                                } else {
                                     Intent intent = new Intent(this, MainActivity.class);
                                     Bundle bundle = new Bundle();
                                     bundle.putString("code_client", result);
                                     intent.putExtras(bundle);
                                     overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
                                     startActivity(intent);
+                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
                                     finish();
                                 }
-                                    error.setText(result);
-                                error.setVisibility(View.VISIBLE);
                                 Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
                             }
                         }
