@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/parent">
+
+    <androidx.cardview.widget.CardView
+        style="@style/parent">
+
+        <LinearLayout
+            style="@style/parent">
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
