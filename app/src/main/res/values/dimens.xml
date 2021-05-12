@@ -1,9 +1,14 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="headerTextSize">32sp</dimen>
+    <dimen name="topTextSize">24sp</dimen>
     <dimen name="newsMoreTextSize">16sp</dimen>
+    <dimen name="smallSize" >12sp</dimen>
+
     <dimen name="loginViewsMargin">20dp</dimen>
     <dimen name="textEditMargin">10dp</dimen>
-    <dimen name="smallSize" >12sp</dimen>
     <dimen name="layoutMargin">50dp</dimen>
+
+    <dimen name="radius_card">27dp</dimen>
+    <dimen name="radius_card_full">32dp</dimen>
 </resources>

@@ -241,27 +241,35 @@ public class RegisterActivity extends AppCompatActivity {
                         if (putData.onComplete()) {
                             String result = putData.getResult();
                             //End ProgressBar (Set visibility to GONE)
-                            if (result.equals("1")) {
-                                startActivity(new Intent(this, LoginActivity.class));
-                                finish();
-                            } else if (result.equals("0")) {
-                                error.setText(getString(R.string.something_wrong));
-                                error.setVisibility(View.VISIBLE);
-                            } else if (result.equals("2")) {
-                                error.setText(getString(R.string.field_already_token, getString(R.string.email_hint)));
-                                error.setVisibility(View.VISIBLE);
-                            } else if (result.equals("3")) {
-                                error.setText(getString(R.string.field_already_token, getString(R.string.username_hint)));
-                                error.setVisibility(View.VISIBLE);
-                            } else if (result.equals("4")) {
-                                error.setText(getString(R.string.already_signed_up));
-                                error.setVisibility(View.VISIBLE);
-                            } else if (result.equals("5")) {
-                                error.setText(getString(R.string.field_inccorect, getString(R.string.client_code)));
-                                error.setVisibility(View.VISIBLE);
-                            } else if (result.equals("6")) {
-                                error.setText(getString(R.string.fields_required));
-                                error.setVisibility(View.VISIBLE);
+                            switch (result) {
+                                case "1":
+                                    startActivity(new Intent(this, LoginActivity.class));
+                                    finish();
+                                    break;
+                                case "0":
+                                    error.setText(getString(R.string.something_wrong));
+                                    error.setVisibility(View.VISIBLE);
+                                    break;
+                                case "2":
+                                    error.setText(getString(R.string.field_already_token, getString(R.string.email_hint)));
+                                    error.setVisibility(View.VISIBLE);
+                                    break;
+                                case "3":
+                                    error.setText(getString(R.string.field_already_token, getString(R.string.username_hint)));
+                                    error.setVisibility(View.VISIBLE);
+                                    break;
+                                case "4":
+                                    error.setText(getString(R.string.already_signed_up));
+                                    error.setVisibility(View.VISIBLE);
+                                    break;
+                                case "5":
+                                    error.setText(getString(R.string.field_inccorect, getString(R.string.client_code)));
+                                    error.setVisibility(View.VISIBLE);
+                                    break;
+                                case "6":
+                                    error.setText(getString(R.string.fields_required));
+                                    error.setVisibility(View.VISIBLE);
+                                    break;
                             }
                             Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
                         }

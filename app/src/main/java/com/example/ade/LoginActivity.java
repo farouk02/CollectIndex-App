@@ -158,21 +158,23 @@ public class LoginActivity extends AppCompatActivity {
                                     Bundle bundle = new Bundle();
                                     bundle.putString("code_client", result);
                                     intent.putExtras(bundle);
-                                    overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
                                     startActivity(intent);
                                     Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
                                     finish();
                                 }
-                                Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                             }
                         }
                         //End Write and Read data with URL
                     });
                     Toast.makeText(this, "sending request", Toast.LENGTH_SHORT).show();
                 }else {
+                    error.setText(getString(R.string.fields_invalid));
                     error.setVisibility(View.VISIBLE);
-                    Toast.makeText(this, "fields invalid", Toast.LENGTH_SHORT).show();
                 }
+            } else {
+                error.setText(getString(R.string.fields_invalid));
+                error.setVisibility(View.VISIBLE);
             }
         });
 

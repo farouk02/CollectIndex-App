@@ -17,14 +17,12 @@
         android:layout_alignParentTop="true">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/parent"
             android:layout_marginTop="30dp"
             android:orientation="vertical"
             android:padding="20dp">
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/parent">
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_alignParentStart="true"
@@ -32,8 +30,8 @@
                     android:text="@string/your_first_step_with_us"
                     android:textColor="@color/whiteTextColor" />
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
+                    style="@style/viewParent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:paddingBottom="20dp"
@@ -41,21 +39,18 @@
                     android:contentDescription="@string/logo_ade" />
             </RelativeLayout>
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/parent"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/whiteTextColor"
                 app:cardCornerRadius="27dp">
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/parent"
                     android:layout_margin="20dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textViewErrorRegister"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin"
                         android:textColor="@color/errorColor"
                         android:visibility="invisible"
@@ -149,8 +144,7 @@
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/parent"
                 android:layout_marginTop="30dp"
                 android:gravity="center"
                 android:weightSum="12">
@@ -161,8 +155,6 @@
                     android:background="@color/whiteTextColor" />
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:text="@string/follow_us"
                     android:textAlignment="center"
@@ -174,24 +166,8 @@
                     android:layout_weight="3"
                     android:background="@color/whiteTextColor" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/textEditMargin"
-                android:layout_marginBottom="@dimen/layoutMargin"
-                android:gravity="center">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_facebook"
-                    android:contentDescription="@string/goto_facebook_page" />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:src="@drawable/ic_hero_site"
-                    android:contentDescription="@string/goto_website" />
-            </LinearLayout>
+
+            <include layout="@layout/follow_us"/>
 
         </LinearLayout>
 
@@ -206,8 +182,7 @@
         android:background="@drawable/ic_side_bg" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/viewParent"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="11dp"

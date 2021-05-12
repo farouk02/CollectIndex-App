@@ -11,22 +11,18 @@
     tools:context=".LoginActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:paddingTop="20dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/parent"
             android:orientation="vertical"
             android:padding="20dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <RelativeLayout style="@style/parent">
 
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
@@ -35,8 +31,7 @@
                     android:text="@string/alreadyHaveAccount" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/viewParent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:contentDescription="@string/logo_ade"
@@ -45,13 +40,12 @@
 
             <TextView
                 android:id="@+id/textViewErrorLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"
+                android:text="@string/username_or_password_incorrect"
                 android:textColor="@color/errorColor"
-                android:visibility="invisible"
                 android:textSize="@dimen/newsMoreTextSize"
-                android:text="@string/username_or_password_incorrect"/>
+                android:visibility="invisible" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLoginUsername"
@@ -114,8 +108,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/parent"
                 android:layout_marginTop="@dimen/layoutMargin"
                 android:gravity="center"
                 android:weightSum="12">
@@ -143,28 +136,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/textEditMargin"
-                android:layout_marginBottom="@dimen/layoutMargin"
-                android:gravity="center">
-
-                <ImageView
-                    android:onClick="gotoFb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_facebook"
-                    android:contentDescription="@string/goto_facebook_page" />
-
-                <ImageView
-                    android:onClick="gotoSite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:src="@drawable/ic_hero_site"
-                    android:contentDescription="@string/goto_website" />
-            </LinearLayout>
+            <include layout="@layout/follow_us"/>
 
 
         </LinearLayout>
@@ -180,8 +152,7 @@
         android:background="@drawable/ic_side_bg" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/viewParent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="10dp"
