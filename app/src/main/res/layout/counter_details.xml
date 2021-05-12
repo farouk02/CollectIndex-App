@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/parent"
+    android:id="@+id/counter_details"
+    android:padding="@dimen/textEditMargin">
 
     <androidx.cardview.widget.CardView
-        style="@style/parent">
+        style="@style/parent"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/colorAccent"
+        app:cardCornerRadius="27dp">
 
         <LinearLayout
-            style="@style/parent">
+            style="@style/parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
+            <TextView
+                style="@style/viewParent"
+                android:layout_margin="@dimen/textEditMargin"
+                android:textSize="@dimen/newsMoreTextSize"
+                android:textColor="@color/whiteTextColor"
+                android:text="@string/counter_num"/>
+            <TextView
+                style="@style/viewParent"
+                android:layout_margin="@dimen/textEditMargin"
+                android:textSize="@dimen/newsMoreTextSize"
+                android:textColor="@color/whiteTextColor"
+                android:text="@string/address"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

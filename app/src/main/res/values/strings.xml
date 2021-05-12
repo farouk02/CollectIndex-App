@@ -50,4 +50,5 @@
     <string name="field_inccorect">%1$s incorrect</string>
     <string name="fields_required">All fields are required</string>
     <string name="person_logo" translatable="false">person logo</string>
+    <string name="address">Address</string>
 </resources>

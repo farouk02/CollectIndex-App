@@ -39,4 +39,5 @@
     <string name="already_signed_up">vous avez déjà inscrit!</string>
     <string name="field_inccorect">%1$s incorrecte!</string>
     <string name="fields_required">All fields are required</string>
+    <string name="address">Addresse</string>
 </resources>

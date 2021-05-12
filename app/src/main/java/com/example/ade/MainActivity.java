@@ -9,18 +9,24 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ade.model.Counter;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView code_client, full_name;
+    LinearLayout linearLayout;
+    ArrayList<Counter> counters = new ArrayList<>();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -33,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
         code_client = findViewById(R.id.codeClientBar);
         full_name = findViewById(R.id.fullNameBar);
+
+        linearLayout = findViewById(R.id.countersShow);
+
+        View v = getLayoutInflater().inflate(R.layout.counter_details, null);
+
+        linearLayout.addView(v);
 
 //        Bundle bundle = getIntent().getExtras();
 
