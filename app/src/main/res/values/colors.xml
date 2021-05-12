@@ -2,19 +2,20 @@
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#200</color>
-    <color name="colorAccent">#11A9CF</color>
+    <color name="accentColor">#11A9CF</color>
     <color name="errorColor">#CF2111</color>
     <color name="warningColor">#CF9911</color>
+    <color name="validateColor">#11CF14</color>
 
-    <color name="themeColor">@color/colorAccent</color>
+    <color name="themeColor">@color/accentColor</color>
 
     <color name="darkTextColor">@color/colorPrimaryDark</color>
     <color name="contentTextColor">@color/colorPrimaryDark</color>
     <color name="whiteTextColor">@color/colorPrimary</color>
-    <color name="primaryTextColor">@color/colorAccent</color>
+    <color name="primaryTextColor">@color/accentColor</color>
 
 
-    <color name="bg_accent_color">@color/colorAccent</color>
+    <color name="bg_accent_color">@color/accentColor</color>
     <color name="bg_primary_color">@color/colorPrimary</color>
 
 </resources>

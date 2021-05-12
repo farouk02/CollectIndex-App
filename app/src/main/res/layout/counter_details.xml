@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         style="@style/parent"
         android:layout_marginTop="10dp"
-        app:cardBackgroundColor="@color/colorAccent"
+        app:cardBackgroundColor="@color/accentColor"
         app:cardCornerRadius="27dp">
 
         <LinearLayout
@@ -16,18 +16,47 @@
             android:layout_margin="20dp"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/viewParent"
-                android:layout_margin="@dimen/textEditMargin"
-                android:textSize="@dimen/newsMoreTextSize"
-                android:textColor="@color/whiteTextColor"
-                android:text="@string/counter_num"/>
-            <TextView
-                style="@style/viewParent"
-                android:layout_margin="@dimen/textEditMargin"
-                android:textSize="@dimen/newsMoreTextSize"
-                android:textColor="@color/whiteTextColor"
-                android:text="@string/address"/>
+            <LinearLayout
+                style="@style/viewParent">
+                <TextView
+                    style="@style/viewParent"
+                    android:layout_margin="@dimen/textEditMargin"
+                    android:textSize="@dimen/newsMoreTextSize"
+                    android:textColor="@color/whiteTextColor"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.01"
+                    android:text="@string/counter_num"/>
+                <TextView
+                    android:id="@+id/counterNum"
+                    style="@style/viewParent"
+                    android:layout_margin="@dimen/textEditMargin"
+                    android:textSize="@dimen/newsMoreTextSize"
+                    android:textColor="@color/whiteTextColor"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15"
+                    android:text="ADE13 121514"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/viewParent">
+                <TextView
+                    style="@style/viewParent"
+                    android:layout_margin="@dimen/textEditMargin"
+                    android:textSize="@dimen/newsMoreTextSize"
+                    android:textColor="@color/whiteTextColor"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.01"
+                    android:text="@string/address"/>
+                <TextView
+                    android:id="@+id/counterAddress"
+                    style="@style/viewParent"
+                    android:layout_margin="@dimen/textEditMargin"
+                    android:textSize="@dimen/newsMoreTextSize"
+                    android:textColor="@color/whiteTextColor"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15"
+                    android:text="ADE13 121514"/>
+            </LinearLayout>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
