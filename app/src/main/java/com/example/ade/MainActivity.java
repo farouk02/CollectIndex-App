@@ -57,21 +57,20 @@ public class MainActivity extends AppCompatActivity {
             if (putData.startPut()) {
                 if (putData.onComplete()) {
                     String result = putData.getResult();
-                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
 
                     try {
                         Gson gson = new Gson();
 
                         counter = gson.fromJson(singleQ(result),Counter[].class);
 
-                        for (int i = 0 ; i < counter.length ; i++) {
+                        for (Counter value : counter) {
                             View v = getLayoutInflater().inflate(R.layout.counter_details, null);
                             TextView tv = v.findViewById(R.id.counterAddress);
 
-                            tv.setText(counter[i].address);
+                            tv.setText(value.address);
 
                             TextView tvC = v.findViewById(R.id.counterNum);
-                            tvC.setText(counter[i].counter_num);
+                            tvC.setText(value.counter_num);
 
                             linearLayout.addView(v);
                         }
