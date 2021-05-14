@@ -156,18 +156,17 @@ public class LoginActivity extends AppCompatActivity {
                                 } else {
                                     Intent intent = new Intent(this, MainActivity.class);
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("code_client", result);
+                                    String[] str = result.split(";", 2);
+                                    bundle.putString("code_client", str[0].toUpperCase());
+                                    bundle.putString("name", str[1].toUpperCase());
                                     intent.putExtras(bundle);
                                     startActivity(intent);
-                                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
                                     finish();
                                 }
-                                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                             }
                         }
                         //End Write and Read data with URL
                     });
-                    Toast.makeText(this, "sending request", Toast.LENGTH_SHORT).show();
                 }else {
                     error.setText(getString(R.string.fields_invalid));
                     error.setVisibility(View.VISIBLE);

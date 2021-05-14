@@ -16,17 +16,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ade.model.Counter;
+import com.google.gson.Gson;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
-
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView code_client, full_name;
-    LinearLayout linearLayout;
-    ArrayList<Counter> counters = new ArrayList<>();
+    LinearLayout linearLayout;Counter[] counter = null;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -42,11 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayout = findViewById(R.id.countersShow);
 
-        View v = getLayoutInflater().inflate(R.layout.counter_details, null);
 
-        linearLayout.addView(v);
 
-//        Bundle bundle = getIntent().getExtras();
+
+        Bundle bundle = getIntent().getExtras();
 
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(() -> {
@@ -56,25 +51,56 @@ public class MainActivity extends AppCompatActivity {
             field[0] = "code_client";
             //Creating array for data
             String[] data = new String[1];
-            //data[0] = bundle.getString("code_client");
-            data[0] = "020202D5151";
-            PutData putData = new PutData(Initialize.HOST_NAME + "/login.php", "POST", field, data);
+            data[0] = bundle.getString("code_client");
+            //data[0] = "0202020D5151";
+            PutData putData = new PutData(Initialize.HOST_NAME + "/getCounters.php", "POST", field, data);
             if (putData.startPut()) {
                 if (putData.onComplete()) {
                     String result = putData.getResult();
+                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+
+                    try {
+                        Gson gson = new Gson();
+
+                        counter = gson.fromJson(singleQ(result),Counter[].class);
+
+                        for (int i = 0 ; i < counter.length ; i++) {
+                            View v = getLayoutInflater().inflate(R.layout.counter_details, null);
+                            TextView tv = v.findViewById(R.id.counterAddress);
+
+                            tv.setText(counter[i].address);
+
+                            TextView tvC = v.findViewById(R.id.counterNum);
+                            tvC.setText(counter[i].counter_num);
+
+                            linearLayout.addView(v);
+                        }
+
+                    }catch (Exception e){
+                        Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+//
+//                    counters = jsonParse(jsonArray);
                     //End ProgressBar (Set visibility to GONE)
 
-                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                 }
             }
             //End Write and Read data with URL
         });
 
-        JSONObject json = new JSONObject();
+        full_name.setText(bundle.getString("name"));
+        code_client.setText(bundle.getString("code_client"));
+    }
 
-        full_name.setText("FAROUK KIOUS");
-//        code_client.setText(bundle.getString("code_client"));
-        code_client.setText("020202D5151");
+    public String singleQ(String str) {
+        char[] s = str.toCharArray();
+        for (int i = 0 ; i < s.length ; i++){
+            if (s[i] == '\"'){
+                s[i] = '\'';
+            }
+        }
+        return String.valueOf(s);
     }
 
     public void gotoFb(View view) {

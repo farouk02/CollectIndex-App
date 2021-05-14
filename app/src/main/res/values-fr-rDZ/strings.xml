@@ -41,4 +41,6 @@
     <string name="fields_required">All fields are required</string>
     <string name="address">Addresse</string>
     <string name="old_index">Ancien index</string>
+    <string name="new_index">Nouvel index</string>
+    <string name="add_index">Ajouter index</string>
 </resources>

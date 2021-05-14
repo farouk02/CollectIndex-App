@@ -52,4 +52,6 @@
     <string name="person_logo" translatable="false">person logo</string>
     <string name="address">Address</string>
     <string name="old_index">Old index</string>
+    <string name="new_index">New index</string>
+    <string name="add_index">Add index</string>
 </resources>

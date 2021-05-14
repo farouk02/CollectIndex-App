@@ -11,4 +11,5 @@
 
     <dimen name="radius_card">27dp</dimen>
     <dimen name="radius_card_full">32dp</dimen>
+    <dimen name="textViewMargin">5dp</dimen>
 </resources>

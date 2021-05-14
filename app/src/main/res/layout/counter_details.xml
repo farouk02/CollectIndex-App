@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/parent"
     android:id="@+id/counter_details"
-    android:padding="@dimen/textEditMargin">
+    android:paddingHorizontal="@dimen/textEditMargin"
+    android:paddingTop="@dimen/textEditMargin">
 
     <androidx.cardview.widget.CardView
         style="@style/parent"
@@ -20,7 +21,8 @@
                 style="@style/viewParent">
                 <TextView
                     style="@style/viewParent"
-                    android:layout_margin="@dimen/textEditMargin"
+                    android:layout_marginHorizontal="@dimen/textViewMargin"
+                    android:layout_marginVertical="@dimen/textEditMargin"
                     android:textSize="@dimen/newsMoreTextSize"
                     android:textColor="@color/whiteTextColor"
                     android:textStyle="bold"
@@ -29,8 +31,8 @@
                 <TextView
                     android:id="@+id/counterNum"
                     style="@style/viewParent"
-                    android:layout_margin="@dimen/textEditMargin"
-                    android:textSize="@dimen/newsMoreTextSize"
+                    android:layout_marginHorizontal="@dimen/textViewMargin"
+                    android:layout_marginVertical="@dimen/textEditMargin"
                     android:textColor="@color/whiteTextColor"
                     android:textStyle="bold"
                     android:letterSpacing="0.15"
@@ -40,7 +42,7 @@
                 style="@style/viewParent">
                 <TextView
                     style="@style/viewParent"
-                    android:layout_margin="@dimen/textEditMargin"
+                    android:layout_margin="@dimen/textViewMargin"
                     android:textSize="@dimen/newsMoreTextSize"
                     android:textColor="@color/whiteTextColor"
                     android:textStyle="bold"
@@ -49,16 +51,15 @@
                 <TextView
                     android:id="@+id/counterAddress"
                     style="@style/viewParent"
-                    android:layout_margin="@dimen/textEditMargin"
+                    android:letterSpacing="0.01"
+                    android:layout_margin="@dimen/textViewMargin"
                     android:textSize="@dimen/newsMoreTextSize"
                     android:textColor="@color/whiteTextColor"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.15"
                     android:text="ADE13 121514"/>
             </LinearLayout>
             <LinearLayout
-                style="@style/viewParent"
-                android:gravity="fill_horizontal"
+                style="@style/parent"
+                android:gravity="center"
                 android:layout_gravity="center">
                 <LinearLayout
                     style="@style/viewParent"
@@ -67,7 +68,7 @@
                     android:orientation="vertical">
                     <TextView
                         style="@style/viewParent"
-                        android:layout_marginTop="@dimen/textEditMargin"
+                        android:layout_marginVertical="@dimen/textViewMargin"
                         android:textSize="@dimen/newsMoreTextSize"
                         android:textColor="@color/whiteTextColor"
                         android:textStyle="bold"
@@ -76,57 +77,76 @@
                     <androidx.cardview.widget.CardView
                         style="@style/viewParent"
                         app:cardCornerRadius="@dimen/radius_card">
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/oldIndex"
                             style="@style/viewParent"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/oldIndex"
-                                style="@style/viewParent"
-                                android:layout_gravity="center"
-                                android:layout_marginHorizontal="@dimen/textEditMargin"
-                                android:textSize="@dimen/newsMoreTextSize"
-                                android:textColor="@color/darkTextColor"
-                                android:textStyle="bold"
-                                android:letterSpacing="0.15"
-                                android:text="121514"/>
-                            <TextView
-                                android:id="@+id/oldIndexDate"
-                                style="@style/viewParent"
-                                android:layout_marginHorizontal="@dimen/textEditMargin"
-                                android:textSize="@dimen/newsMoreTextSize"
-                                android:textColor="@color/darkTextColor"
-                                android:textStyle="bold"
-                                android:text="01/04/2021"/>
-
-                        </LinearLayout>
+                            android:layout_margin="@dimen/textViewMargin"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/newsMoreTextSize"
+                            android:textColor="@color/darkTextColor"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.15"
+                            android:text="121514"/>
                     </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
                 <LinearLayout
                     style="@style/viewParent"
+                    android:layout_gravity="start"
                     android:gravity="center"
-                    android:layout_gravity="end"
+                    android:layout_marginStart="@dimen/layoutMargin"
                     android:orientation="vertical">
                     <TextView
                         style="@style/viewParent"
+                        android:layout_marginVertical="@dimen/textViewMargin"
                         android:textSize="@dimen/newsMoreTextSize"
                         android:textColor="@color/whiteTextColor"
-                        android:layout_marginTop="@dimen/textEditMargin"
                         android:textStyle="bold"
                         android:letterSpacing="0.01"
-                        android:text="@string/address"/>
-                    <TextView
-                        android:id="@+id/newIndex"
+                        android:text="@string/new_index"/>
+                    <androidx.cardview.widget.CardView
                         style="@style/viewParent"
-                        android:layout_margin="@dimen/textEditMargin"
-                        android:textSize="@dimen/newsMoreTextSize"
-                        android:textColor="@color/whiteTextColor"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.15"
-                        android:text="ADE13 121514"/>
+                        app:cardCornerRadius="@dimen/radius_card">
+                        <EditText
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:textAlignment="center"
+                            android:inputType="number"
+                            android:maxLength="10">
+
+                        </EditText>
+                    </androidx.cardview.widget.CardView>
+
                 </LinearLayout>
             </LinearLayout>
 
+
+            <LinearLayout
+                android:gravity="end"
+                android:layout_margin="@dimen/textEditMargin"
+                style="@style/parent">
+                <Button
+                    android:id="@+id/history"
+                    android:background="@color/bg_accent_color"
+                    android:textSize="@dimen/newsMoreTextSize"
+                    android:textColor="@color/whiteTextColor"
+                    android:layout_margin="@dimen/textEditMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_index"
+                    style="?android:attr/buttonBarButtonStyle" />
+                <Button
+                    android:id="@+id/containedButton"
+                    android:padding="@dimen/textEditMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_primary_color"
+                    android:textSize="@dimen/newsMoreTextSize"
+                    android:textColor="@color/primaryTextColor"
+                    android:text="@string/add_index"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
 

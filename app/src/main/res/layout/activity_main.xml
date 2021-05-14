@@ -8,59 +8,72 @@
     android:gravity="top"
     android:orientation="vertical"
     android:focusableInTouchMode="true"
-    android:background="@color/bg_primary_color"
+    android:background="@color/bg_accent_color"
     tools:context=".MainActivity">
 
     <include layout="@layout/client_bar" />
 
-    <ScrollView
+    <androidx.cardview.widget.CardView
         style="@style/parent"
-        tools:ignore="ScrollViewCount">
-        <LinearLayout
+        app:cardCornerRadius="@dimen/radius_card">
+        <ScrollView
+            android:layout_marginVertical="@dimen/loginViewsMargin"
             style="@style/parent"
-            android:orientation="vertical">
+            tools:ignore="ScrollViewCount">
             <LinearLayout
-                android:id="@+id/countersShow"
-                android:orientation="vertical"
-                style="@style/parent"/>
+                style="@style/parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/countersShow"
+                    android:orientation="vertical"
+                    style="@style/parent"/>
 
-            <LinearLayout
+                <ListView
+                    android:id="@+id/lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layoutMargin"
-                android:gravity="center"
-                android:layout_gravity=""
-                android:weightSum="12">
+                </ListView>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/colorPrimaryDark" />
+                <LinearLayout
 
-                <TextView
-                    style="@style/viewParent.headerText.NoMode"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:text="@string/follow_us"
-                    android:textAlignment="center"
-                    android:textSize="14sp" />
+                    android:layout_marginTop="@dimen/layoutMargin"
+                    android:gravity="center"
+                    android:layout_gravity=""
+                    android:weightSum="12">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/colorPrimaryDark" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="3"
+                        android:background="@color/colorPrimaryDark" />
+
+                    <TextView
+                        style="@style/viewParent.headerText.NoMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="@string/follow_us"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="3"
+                        android:background="@color/colorPrimaryDark" />
+
+                </LinearLayout>
+
+                <include layout="@layout/follow_us"/>
 
             </LinearLayout>
 
-            <include layout="@layout/follow_us"/>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-
-    </ScrollView>
 
 
 
