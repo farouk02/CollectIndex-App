@@ -39,7 +39,7 @@
             android:letterSpacing="0.15"
             android:textStyle="bold"
             android:text="@string/client_code"
-            android:textSize="@dimen/newsMoreTextSize"
+            android:textSize="@dimen/normalTextSize"
             android:textColor="@color/colorPrimary"/>
     </LinearLayout>
 

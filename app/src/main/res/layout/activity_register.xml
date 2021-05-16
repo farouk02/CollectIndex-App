@@ -54,7 +54,7 @@
                         android:layout_marginTop="@dimen/loginViewsMargin"
                         android:textColor="@color/errorColor"
                         android:visibility="invisible"
-                        android:textSize="@dimen/newsMoreTextSize"
+                        android:textSize="@dimen/normalTextSize"
                         android:text="@string/username_or_password_incorrect"/>
 
                     <com.google.android.material.textfield.TextInputLayout

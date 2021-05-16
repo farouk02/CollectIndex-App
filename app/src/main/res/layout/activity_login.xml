@@ -44,7 +44,7 @@
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:text="@string/username_or_password_incorrect"
                 android:textColor="@color/errorColor"
-                android:textSize="@dimen/newsMoreTextSize"
+                android:textSize="@dimen/normalTextSize"
                 android:visibility="invisible" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -84,7 +84,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/forgot_password"
                 android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/newsMoreTextSize" />
+                android:textSize="@dimen/normalTextSize" />
 
             <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
                 android:id="@+id/cirLoginButton"
