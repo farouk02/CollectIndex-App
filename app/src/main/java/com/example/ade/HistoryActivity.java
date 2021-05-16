@@ -1,7 +1,5 @@
 package com.example.ade;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -9,12 +7,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ade.model.Counter;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.ade.model.History;
 import com.google.gson.Gson;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
