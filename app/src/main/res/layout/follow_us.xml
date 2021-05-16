@@ -5,7 +5,7 @@
 
     <LinearLayout
         style="@style/parent"
-        android:layout_marginTop="@dimen/textEditMargin"
+        android:layout_marginTop="@dimen/normalMargin"
         android:layout_marginBottom="@dimen/layoutMargin"
         android:gravity="center">
 

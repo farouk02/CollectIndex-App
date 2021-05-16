@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/counter_details"
     style="@style/parent"
-    android:paddingHorizontal="@dimen/textEditMargin"
-    android:paddingTop="@dimen/textEditMargin">
+    android:paddingHorizontal="@dimen/normalMargin"
+    android:paddingTop="@dimen/normalMargin">
 
     <androidx.cardview.widget.CardView
         style="@style/parent"
@@ -22,8 +22,8 @@
                 <TextView
                     android:layout_width="@dimen/card_title_width"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/textViewMargin"
-                    android:layout_marginVertical="@dimen/textEditMargin"
+                    android:layout_marginHorizontal="@dimen/smallMargin"
+                    android:layout_marginVertical="@dimen/normalMargin"
                     android:textAlignment="textEnd"
                     android:letterSpacing="0.01"
                     android:text="@string/counter_num"
@@ -34,8 +34,8 @@
                 <TextView
                     android:id="@+id/counterNum"
                     style="@style/viewParent"
-                    android:layout_marginHorizontal="@dimen/textViewMargin"
-                    android:layout_marginVertical="@dimen/textEditMargin"
+                    android:layout_marginHorizontal="@dimen/smallMargin"
+                    android:layout_marginVertical="@dimen/normalMargin"
                     android:letterSpacing="0.15"
                     android:textSize="@dimen/normalTextSize"
                     android:textColor="@color/whiteTextColor"
@@ -47,7 +47,7 @@
                 <TextView
                     android:layout_width="@dimen/card_title_width"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/textViewMargin"
+                    android:layout_margin="@dimen/smallMargin"
                     android:textAlignment="textEnd"
                     android:letterSpacing="0.01"
                     android:text="@string/address"
@@ -58,7 +58,7 @@
                 <TextView
                     android:id="@+id/counterAddress"
                     style="@style/viewParent"
-                    android:layout_margin="@dimen/textViewMargin"
+                    android:layout_margin="@dimen/smallMargin"
                     android:letterSpacing="0.01"
                     android:textColor="@color/whiteTextColor"
                     android:textSize="@dimen/normalTextSize" />
@@ -73,8 +73,8 @@
                 <TextView
                     android:layout_width="@dimen/card_title_width"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/textViewMargin"
-                    android:layout_marginVertical="@dimen/textEditMargin"
+                    android:layout_marginHorizontal="@dimen/smallMargin"
+                    android:layout_marginVertical="@dimen/normalMargin"
                     android:letterSpacing="0.01"
                     android:textAlignment="textEnd"
                     android:text="@string/old_index"
@@ -84,15 +84,15 @@
 
                 <androidx.cardview.widget.CardView
                     style="@style/viewParent"
-                    android:layout_marginHorizontal="@dimen/textViewMargin"
-                    android:layout_marginVertical="@dimen/textEditMargin"
+                    android:layout_marginHorizontal="@dimen/smallMargin"
+                    android:layout_marginVertical="@dimen/normalMargin"
                     app:cardCornerRadius="@dimen/radius_card">
 
                     <TextView
                         android:id="@+id/textViewOldIndex"
                         style="@style/viewParent"
                         android:layout_gravity="center"
-                        android:layout_margin="@dimen/textViewMargin"
+                        android:layout_margin="@dimen/smallMargin"
                         android:letterSpacing="0.15"
                         android:textColor="@color/darkTextColor"
                         android:textSize="@dimen/normalTextSize"
@@ -102,7 +102,7 @@
                 <TextView
                     android:id="@+id/addIndexButton"
                     style="@style/viewParent"
-                    android:layout_marginHorizontal="@dimen/textEditMargin"
+                    android:layout_marginHorizontal="@dimen/normalMargin"
                     android:textColor="@color/whiteTextColor"
                     android:textSize="@dimen/mediumTextSize"
                     android:text="@string/add_index"
@@ -121,8 +121,8 @@
                 <TextView
                     android:layout_width="@dimen/card_title_width"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/textViewMargin"
-                    android:layout_marginVertical="@dimen/textEditMargin"
+                    android:layout_marginHorizontal="@dimen/smallMargin"
+                    android:layout_marginVertical="@dimen/normalMargin"
                     android:letterSpacing="0.01"
                     android:text="@string/new_index"
                     android:textAlignment="textEnd"
@@ -132,8 +132,8 @@
 
                 <androidx.cardview.widget.CardView
                     style="@style/viewParent"
-                    android:layout_marginHorizontal="@dimen/textViewMargin"
-                    android:layout_marginVertical="@dimen/textEditMargin"
+                    android:layout_marginHorizontal="@dimen/smallMargin"
+                    android:layout_marginVertical="@dimen/normalMargin"
                     app:cardCornerRadius="@dimen/radius_card">
 
                     <EditText
@@ -154,8 +154,8 @@
                     android:id="@+id/addButton"
                     style="@style/viewParent"
                     android:textStyle="bold"
-                    android:layout_marginHorizontal="@dimen/textEditMargin"
-                    android:layout_marginVertical="@dimen/textViewMargin"
+                    android:layout_marginHorizontal="@dimen/normalMargin"
+                    android:layout_marginVertical="@dimen/smallMargin"
                     android:textColor="@color/whiteTextColor"
                     android:textSize="@dimen/mediumTextSize"
                     android:text="@string/add"
@@ -165,10 +165,10 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/HistoryButton"
+                android:id="@+id/historyButton"
                 style="@style/viewParent"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/loginViewsMargin"
+                android:layout_marginTop="@dimen/largeMargin"
                 android:textColor="@color/whiteTextColor"
                 android:textSize="@dimen/mediumTextSize"
                 android:textAlignment="center"

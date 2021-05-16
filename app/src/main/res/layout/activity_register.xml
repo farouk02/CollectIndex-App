@@ -51,7 +51,7 @@
                     <TextView
                         android:id="@+id/textViewErrorRegister"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:layout_marginTop="@dimen/largeMargin"
                         android:textColor="@color/errorColor"
                         android:visibility="invisible"
                         android:textSize="@dimen/normalTextSize"
@@ -123,7 +123,7 @@
                         style="@style/loginButton"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:layout_marginTop="@dimen/largeMargin"
                         android:text="@string/register"
                         app:initialCornerAngle="27dp"
                         app:spinning_bar_color="#FFF"
@@ -132,7 +132,7 @@
 
                     <TextView
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        android:layout_marginTop="@dimen/largeMargin"
                         android:onClick="onLoginClick"
                         android:text="@string/already_have_an_account"
                         android:textAlignment="center"

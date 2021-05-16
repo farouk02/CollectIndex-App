@@ -45,7 +45,7 @@
     <string name="no_spaces">%1$s must not contain spaces</string>
     <string name="fields_invalid">Fields invalid</string>
     <string name="field_already_token">%1$s is already token!</string>
-    <string name="something_wrong" >Something wrong. Please try again later!</string>
+    <string name="something_wrong">Something wrong. Please try again later!</string>
     <string name="already_signed_up">you are already Signed Up</string>
     <string name="field_inccorect">%1$s incorrect</string>
     <string name="fields_required">All fields are required</string>

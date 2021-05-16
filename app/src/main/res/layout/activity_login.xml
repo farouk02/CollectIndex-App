@@ -41,7 +41,7 @@
             <TextView
                 android:id="@+id/textViewErrorLogin"
                 style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin"
+                android:layout_marginTop="@dimen/largeMargin"
                 android:text="@string/username_or_password_incorrect"
                 android:textColor="@color/errorColor"
                 android:textSize="@dimen/normalTextSize"
@@ -65,7 +65,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLoginPassword"
                 style="@style/parent"
-                android:layout_marginTop="@dimen/textEditMargin"
+                android:layout_marginTop="@dimen/normalMargin"
                 app:passwordToggleEnabled="true">
 
                 <EditText
@@ -90,7 +90,7 @@
                 android:id="@+id/cirLoginButton"
                 style="@style/loginButton"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/loginViewsMargin"
+                android:layout_marginTop="@dimen/largeMargin"
                 android:text="@string/login"
                 app:initialCornerAngle="27dp"
                 app:spinning_bar_color="#FFF"
@@ -99,7 +99,7 @@
 
             <TextView
                 style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin"
+                android:layout_marginTop="@dimen/largeMargin"
                 android:onClick="onRegisterClick"
                 android:text="@string/new_user_register_now"
                 android:textAlignment="center"

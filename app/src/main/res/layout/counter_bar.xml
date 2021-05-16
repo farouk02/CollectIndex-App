@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_accent_color"
+    android:background="@color/bg_primary_color"
     android:gravity="start"
-    android:padding="10dp">
+    android:padding="@dimen/normalMargin">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/backCounterBar"
         style="@style/viewParent"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="@dimen/largeMargin"
         app:cardCornerRadius="@dimen/radius_card_full">
 
         <ImageView
@@ -24,22 +25,21 @@
         style="@style/viewParent"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/fullNameBar"
             style="@style/viewParent"
             android:maxLines="1"
-            android:text="@string/app_name"
+            android:text="@string/counter_num"
             android:letterSpacing="0.01"
-            android:textSize="@dimen/topTextSize"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/normalTextSize"
+            android:textColor="@color/darkTextColor"/>
         <TextView
-            android:id="@+id/codeClientBar"
+            android:id="@+id/counterNumBar"
             style="@style/viewParent"
             android:maxLines="1"
             android:letterSpacing="0.15"
             android:textStyle="bold"
             android:text="@string/client_code"
-            android:textSize="@dimen/normalTextSize"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="@dimen/topTextSize"
+            android:textColor="@color/darkTextColor"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -6,11 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bg_accent_color"
     android:gravity="start"
-    android:padding="@dimen/loginViewsMargin">
+    android:padding="@dimen/medMargin">
 
     <androidx.cardview.widget.CardView
         style="@style/viewParent"
-        android:layout_marginEnd="@dimen/textEditMargin"
+        android:layout_marginEnd="@dimen/normalMargin"
         app:cardCornerRadius="@dimen/radius_card_full">
 
     <ImageView

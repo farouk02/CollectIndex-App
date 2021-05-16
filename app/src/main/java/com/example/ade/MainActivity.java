@@ -85,6 +85,19 @@ public class MainActivity extends AppCompatActivity {
 
                             TextView addButton = v.findViewById(R.id.addButton);
 
+                            TextView historyButton = v.findViewById(R.id.historyButton);
+
+                            historyButton.setOnClickListener(v1 -> {
+                                Bundle bundle1 = new Bundle();
+                                bundle1.putString("name",bundle.getString("name"));
+                                bundle1.putString("code_client",bundle.getString("code_client"));
+                                bundle1.putString("counter_num",value.counter_num);
+
+                                Intent intent = new Intent(this, HistoryActivity.class);
+                                intent.putExtras(bundle1);
+                                startActivity(intent);
+                            });
+
                             addIndexButton.setOnClickListener(v1 -> {
                                 //verify date permission
                                 Handler handler1 = new Handler(Looper.getMainLooper());
