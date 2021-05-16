@@ -26,6 +26,13 @@ import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 
 public class LoginActivity extends AppCompatActivity {
 
+    TextInputLayout username;
+    TextInputLayout password;
+    TextView error;
+    CircularProgressButton loginButton;
+    private boolean usernameValidate = false;
+    private boolean passwordValidate = false;
+
     public boolean isNotValid(final String STR, final String PATTERN) {
 
         Pattern pattern;
@@ -37,14 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         return !matcher.matches();
 
     }
-
-    TextInputLayout username;
-    TextInputLayout password;
-    TextView error;
-    CircularProgressButton loginButton;
-
-    private boolean usernameValidate = false;
-    private boolean passwordValidate = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (username.getEditText().getText().toString().isEmpty()) {
                     username.setError(getString(R.string.field_required, getString(R.string.username_hint)));
                     usernameValidate = false;
-                } else if(isNotValid(username.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                } else if (isNotValid(username.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")) {
                     username.setError(getString(R.string.no_spaces, getString(R.string.username_hint)));
                     usernameValidate = false;
                 } else {
@@ -99,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (password.getEditText().getText().toString().isEmpty()) {
                     password.setError(getString(R.string.field_required, getString(R.string.password_hint)));
                     passwordValidate = false;
-                } else if(isNotValid(password.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")){
+                } else if (isNotValid(password.getEditText().getText().toString().trim(), "^(?=\\S+$).{1,}$")) {
                     password.setError(getString(R.string.no_spaces, getString(R.string.password_hint)));
                     passwordValidate = false;
                 } else {
@@ -124,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(v -> {
 
-            String username,password;
+            String username, password;
             username = this.username.getEditText().getText().toString().toLowerCase();
             password = this.password.getEditText().getText().toString();
 
@@ -142,32 +141,39 @@ public class LoginActivity extends AppCompatActivity {
                         String[] data = new String[2];
                         data[0] = username;
                         data[1] = password;
+
+
                         PutData putData = new PutData(Initialize.HOST_NAME + "/login.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
-                                String result = putData.getResult();
-                                //End ProgressBar (Set visibility to GONE)
-                                if (result.equals("2")) {
-                                    error.setText(getString(R.string.username_or_password_incorrect));
-                                    error.setVisibility(View.VISIBLE);
-                                } else if (result.equals("3")) {
-                                    error.setText(getString(R.string.fields_required));
-                                    error.setVisibility(View.VISIBLE);
-                                } else {
-                                    Intent intent = new Intent(this, MainActivity.class);
-                                    Bundle bundle = new Bundle();
-                                    String[] str = result.split(";", 2);
-                                    bundle.putString("code_client", str[0].toUpperCase());
-                                    bundle.putString("name", str[1].toUpperCase());
-                                    intent.putExtras(bundle);
-                                    startActivity(intent);
-                                    finish();
+
+                                    String result = putData.getResult();
+                                    try {    //End ProgressBar (Set visibility to GONE)
+                                    if (result.equals("2")) {
+                                        error.setText(getString(R.string.username_or_password_incorrect));
+                                        error.setVisibility(View.VISIBLE);
+                                    } else if (result.equals("3")) {
+                                        error.setText(getString(R.string.fields_required));
+                                        error.setVisibility(View.VISIBLE);
+                                    } else {
+                                        Intent intent = new Intent(this, MainActivity.class);
+                                        Bundle bundle = new Bundle();
+                                        String[] str = result.split(";", 2);
+                                        bundle.putString("code_client", str[0].toUpperCase());
+                                        bundle.putString("name", str[1].toUpperCase());
+                                        intent.putExtras(bundle);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                } catch (Exception e) {
+                                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
                                 }
                             }
                         }
+
                         //End Write and Read data with URL
                     });
-                }else {
+                } else {
                     error.setText(getString(R.string.fields_invalid));
                     error.setVisibility(View.VISIBLE);
                 }
@@ -178,9 +184,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
-
-
 
 
     public void onRegisterClick(View view) {
