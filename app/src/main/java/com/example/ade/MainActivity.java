@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +23,8 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 public class MainActivity extends AppCompatActivity {
 
     TextView code_client, full_name;
-    LinearLayout linearLayout;Counter[] counter = null;
+    LinearLayout linearLayout;
+    Counter[] counter = null;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -39,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.countersShow);
 
 
-
-
         Bundle bundle = getIntent().getExtras();
 
         Handler handler = new Handler(Looper.getMainLooper());
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             //Creating array for data
             String[] data = new String[1];
             data[0] = bundle.getString("code_client");
-            //data[0] = "0202020D5151";
+
             PutData putData = new PutData(Initialize.HOST_NAME + "/getCounters.php", "POST", field, data);
             if (putData.startPut()) {
                 if (putData.onComplete()) {
@@ -61,26 +61,149 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         Gson gson = new Gson();
 
-                        counter = gson.fromJson(singleQ(result),Counter[].class);
+                        counter = gson.fromJson(singleQ(result), Counter[].class);
+
 
                         for (Counter value : counter) {
                             View v = getLayoutInflater().inflate(R.layout.counter_details, null);
-                            TextView tv = v.findViewById(R.id.counterAddress);
+                            TextView tvAddress = v.findViewById(R.id.counterAddress);
 
-                            tv.setText(value.address);
+                            tvAddress.setText(value.address);
 
-                            TextView tvC = v.findViewById(R.id.counterNum);
-                            tvC.setText(value.counter_num);
+                            TextView tvCNum = v.findViewById(R.id.counterNum);
+                            tvCNum.setText(value.counter_num);
+
+                            TextView tvOld = v.findViewById(R.id.textViewOldIndex);
+                            tvOld.setText(String.valueOf(value.old_index));
+
+
+                            TextView addIndexButton = v.findViewById(R.id.addIndexButton);
+
+                            LinearLayout addIndexLayout = v.findViewById(R.id.addIndexLayout);
+
+                            EditText etNew = v.findViewById(R.id.editTextNewIndex);
+
+                            TextView addButton = v.findViewById(R.id.addButton);
+
+                            addIndexButton.setOnClickListener(v1 -> {
+                                //verify date permission
+                                Handler handler1 = new Handler(Looper.getMainLooper());
+                                handler1.post(() -> {
+                                    //Starting Write and Read data with URL
+                                    //Creating array for parameters
+                                    String[] field1 = new String[1];
+                                    field1[0] = "counter_num";
+                                    //Creating array for data
+                                    String[] data1 = new String[1];
+                                    data1[0] = "true";
+                                    PutData putData1 = new PutData(Initialize.HOST_NAME + "/isCollectDate.php", "POST", field1, data1);
+                                    if (putData1.startPut()) {
+                                        if (putData1.onComplete()) {
+                                            String result1 = putData1.getResult();
+                                            //End ProgressBar (Set visibility to GONE)
+                                            if (result1.equals("1")) {
+                                                addIndexLayout.setVisibility(View.VISIBLE);
+                                                addIndexButton.setVisibility(View.INVISIBLE);
+                                            } else if (result1.equals("0")) {
+                                                Toast.makeText(this, getString(R.string.cant_add_index_today), Toast.LENGTH_LONG).show();
+                                            } else {
+                                                Toast.makeText(this, result1, Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    }
+
+                                    //End Write and Read data with URL
+                                });
+                            });
+
+                            addButton.setOnClickListener(v1 -> {
+                                if (etNew.getText().toString().isEmpty()) {
+                                    Toast.makeText(this, getString(R.string.field_required, getString(R.string.new_index)), Toast.LENGTH_LONG).show();
+                                } else if (value.old_index >= Integer.parseInt(etNew.getText().toString())) {
+                                    Toast.makeText(this, getString(R.string.field_greater, getString(R.string.new_index), value.old_index), Toast.LENGTH_LONG).show();
+
+                                } else {
+                                    Handler handler1 = new Handler(Looper.getMainLooper());
+                                    handler1.post(() -> {
+                                        //Starting Write and Read data with URL
+                                        //Creating array for parameters
+                                        String[] field1 = new String[1];
+                                        field1[0] = "counter_num";
+                                        //Creating array for data
+                                        String[] data1 = new String[1];
+                                        data1[0] = "true";
+                                        PutData putData1 = new PutData(Initialize.HOST_NAME + "/isCollectDate.php", "POST", field1, data1);
+                                        if (putData1.startPut()) {
+                                            if (putData1.onComplete()) {
+                                                String result1 = putData1.getResult();
+                                                //End ProgressBar (Set visibility to GONE)
+                                                if (result1.equals("1")) {
+                                                    Handler handler2 = new Handler(Looper.getMainLooper());
+                                                    handler2.post(() -> {
+                                                        //Starting Write and Read data with URL
+                                                        //Creating array for parameters
+                                                        String[] field2 = new String[2];
+                                                        field2[0] = "counter_num";
+                                                        field2[1] = "new_index";
+                                                        //Creating array for data
+                                                        String[] data2 = new String[2];
+                                                        data2[0] = value.counter_num;
+                                                        data2[1] = etNew.getText().toString();
+
+
+                                                        PutData putData2 = new PutData(Initialize.HOST_NAME + "/addIndex.php", "POST", field2, data2);
+                                                        if (putData2.startPut()) {
+                                                            if (putData2.onComplete()) {
+                                                                String result2 = putData2.getResult();
+                                                                //End ProgressBar (Set visibility to GONE)
+                                                                switch (result2) {
+                                                                    case "1":
+
+                                                                        tvOld.setText(etNew.getText().toString());
+                                                                        addIndexLayout.setVisibility(View.INVISIBLE);
+                                                                        break;
+                                                                    case "-1":
+                                                                        Toast.makeText(this, getString(R.string.error_update_counter), Toast.LENGTH_LONG).show();
+                                                                        break;
+                                                                    case "0":
+                                                                        Toast.makeText(this, getString(R.string.error_add_index), Toast.LENGTH_LONG).show();
+                                                                        break;
+                                                                    case "2":
+                                                                        Toast.makeText(this, getString(R.string.field_invalid, getString(R.string.counter_num)), Toast.LENGTH_LONG).show();
+                                                                        break;
+                                                                    case "3":
+                                                                        Toast.makeText(this, getString(R.string.fields_required), Toast.LENGTH_LONG).show();
+                                                                        break;
+                                                                    default:
+                                                                        Toast.makeText(this, result2, Toast.LENGTH_LONG).show();
+                                                                        break;
+                                                                }
+                                                            }
+                                                        }
+
+                                                        //End Write and Read data with URL
+                                                    });
+                                                } else if (result1.equals("0")) {
+                                                    Toast.makeText(this, getString(R.string.cant_add_index_today), Toast.LENGTH_LONG).show();
+                                                } else {
+                                                    Toast.makeText(this, result1, Toast.LENGTH_LONG).show();
+                                                }
+                                            }
+                                        }
+
+                                        //End Write and Read data with URL
+                                    });
+
+                                }
+                            });
 
                             linearLayout.addView(v);
                         }
 
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
 
-//
-//                    counters = jsonParse(jsonArray);
                     //End ProgressBar (Set visibility to GONE)
 
                 }
@@ -90,12 +213,13 @@ public class MainActivity extends AppCompatActivity {
 
         full_name.setText(bundle.getString("name"));
         code_client.setText(bundle.getString("code_client"));
+
     }
 
     public String singleQ(String str) {
         char[] s = str.toCharArray();
-        for (int i = 0 ; i < s.length ; i++){
-            if (s[i] == '\"'){
+        for (int i = 0; i < s.length; i++) {
+            if (s[i] == '\"') {
                 s[i] = '\'';
             }
         }

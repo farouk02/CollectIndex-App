@@ -45,5 +45,7 @@
     <string name="add_index">Ajouter index</string>
     <string name="add">Ajouter</string>
     <string name="show_history">voir l\'historique</string>
-    <string name="cant_add_index_today">Vous ne pouvez pas ajouter d\'index aujourd'hui.</string>
+    <string name="cant_add_index_today">Vous ne pouvez pas ajouter d\'index aujourd\'hui.</string>
+    <string name="error_add_index">Échec de l\'ajout de l\'index, ajoutez-le plus tard!</string>
+    <string name="error_update_counter">Échec de MAJ du compteur.</string>
 </resources>
