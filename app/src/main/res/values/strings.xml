@@ -7,7 +7,7 @@
     <string name="register">Register</string>
     <string name="next">Next</string>
     <string name="client_code">Client Number</string>
-    <string name="counter_num">Counter Number</string>
+    <string name="counter_num">Counter Num</string>
     <string name="mobile_number_hint">Mobile Number</string>
     <string name="email_hint">Email</string>
 
@@ -35,14 +35,14 @@
 
     <string name="field_required">%1$s required</string>
     <string name="field_equal">%1$s must contain %2$d characters</string>
-    <string name="field_inder">%1$s must be less than %2$d characters</string>
+    <string name="field_under">%1$s must be less than %2$d characters</string>
     <string name="field_greater">%1$s must be greater than %2$d characters</string>
     <string name="field_between">%1$s must be between %2$d and %3$d characters</string>
     <string name="username_or_password_incorrect">Username or Password wrong!</string>
     <string name="field_invalid">Invalid %1$s</string>
     <string name="field_at_least">%1$s must contain at least %2$d characters</string>
     <string name="password_requirement">At least 1 lowercase, 1 uppercase and 1 number.</string>
-    <string name="no_spaces">%1$s mustn\'t contain spaces</string>
+    <string name="no_spaces">%1$s must not contain spaces</string>
     <string name="fields_invalid">Fields invalid</string>
     <string name="field_already_token">%1$s is already token!</string>
     <string name="something_wrong" >Something wrong. Please try again later!</string>
@@ -54,4 +54,7 @@
     <string name="old_index">Old index</string>
     <string name="new_index">New index</string>
     <string name="add_index">Add index</string>
+    <string name="add">ADD</string>
+    <string name="show_history">Show history</string>
+    <string name="cant_add_index_today">You can\'t ADD index today</string>
 </resources>

@@ -19,10 +19,10 @@
         \npas avec
         \nnous!</string>
     <string name="client_code">Client code</string>
-    <string name="counter_num">Numero du Compteur</string>
+    <string name="counter_num">Num. Compteur</string>
     <string name="field_required" >%1$s obligatoire</string>
     <string name="field_equal">"%1$s doit être contien %2$d caractères "</string>
-    <string name="field_inder">%1$s doit être inferieur à %2$d caractères</string>
+    <string name="field_under">%1$s doit être inferieur à %2$d caractères</string>
     <string name="field_greater">%1$s doit être superieur à %2$d caractères</string>
     <string name="field_between">%1$s doit être entre %2$d et %3$d caractères</string>
     <string name="next">Continue</string>
@@ -43,4 +43,7 @@
     <string name="old_index">Ancien index</string>
     <string name="new_index">Nouvel index</string>
     <string name="add_index">Ajouter index</string>
+    <string name="add">Ajouter</string>
+    <string name="show_history">voir l\'historique</string>
+    <string name="cant_add_index_today">Vous ne pouvez pas ajouter d\'index aujourd'hui.</string>
 </resources>
