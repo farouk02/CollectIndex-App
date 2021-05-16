@@ -11,6 +11,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/backCounterBar"
         style="@style/viewParent"
+        android:onClick="back"
         android:layout_marginEnd="@dimen/largeMargin"
         app:cardCornerRadius="@dimen/radius_card_full">
 

@@ -59,4 +59,5 @@
     <string name="cant_add_index_today">You can\'t ADD index today</string>
     <string name="error_add_index">Failed to add index, add it later!</string>
     <string name="error_update_counter">Failed to update counter</string>
+    <string name="date">Date</string>
 </resources>

@@ -23,7 +23,6 @@ public class HistoryActivity extends AppCompatActivity {
 
     TextView code_client, full_name, counter_num;
     LinearLayout linearLayout;
-    History[] histories = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +47,12 @@ public class HistoryActivity extends AppCompatActivity {
             //Starting Write and Read data with URL
             //Creating array for parameters
             String[] field = new String[1];
-            field[0] = "code_client";
+            field[0] = "counter_num";
             //Creating array for data
             String[] data = new String[1];
-            data[0] = bundle.getString("code_client");
+            data[0] = bundle.getString("counter_num");
 
-            PutData putData = new PutData(Initialize.HOST_NAME + "/getCounters.php", "POST", field, data);
+            PutData putData = new PutData(Initialize.HOST_NAME + "/getHistory.php", "POST", field, data);
             if (putData.startPut()) {
                 if (putData.onComplete()) {
                     String result = putData.getResult();
@@ -61,13 +60,18 @@ public class HistoryActivity extends AppCompatActivity {
                     try {
                         Gson gson = new Gson();
 
-                        histories = gson.fromJson(singleQ(result), History[].class);
+                        History[] histories = gson.fromJson(singleQ(result), History[].class);
 
 
                         for (History value : histories) {
 
-                            View v = getLayoutInflater().inflate(R.layout.counter_details, null);
+                            View v = getLayoutInflater().inflate(R.layout.history_details, null);
 
+                            TextView historyNewIndex = v.findViewById(R.id.historyNewIndex);
+                            TextView historyDate = v.findViewById(R.id.historyDate);
+
+                            historyNewIndex.setText(String.valueOf(value.new_index));
+                            historyDate.setText(value.date);
 
 
                             linearLayout.addView(v);
@@ -116,4 +120,7 @@ public class HistoryActivity extends AppCompatActivity {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Initialize.WEBSITE_URL)));
     }
 
+    public void back(View view) {
+        finish();
+    }
 }

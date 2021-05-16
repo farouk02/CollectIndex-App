@@ -1,10 +1,10 @@
 package com.example.ade.model;
 
 public class History {
-    String new_index;
-    String date;
+    public int new_index;
+    public String date;
 
-    public History(String new_index, String date) {
+    public History(int new_index, String date) {
         this.new_index = new_index;
         this.date = date;
     }

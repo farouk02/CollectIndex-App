@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/counter_details"
+    style="@style/parent"
+    android:paddingHorizontal="@dimen/normalMargin"
+    android:paddingTop="@dimen/normalMargin">
+
+    <androidx.cardview.widget.CardView
+        style="@style/parent"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/accentColor"
+        app:cardCornerRadius="27dp">
+
+        <LinearLayout
+            style="@style/parent"
+            android:layout_margin="@dimen/normalMargin"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/viewParent">
+
+                <TextView
+                    android:layout_width="@dimen/card_title_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/smallMargin"
+                    android:layout_marginVertical="@dimen/normalMargin"
+                    android:textAlignment="textEnd"
+                    android:letterSpacing="0.01"
+                    android:text="@string/new_index"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="@dimen/normalTextSize"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    style="@style/viewParent"
+                    android:layout_marginHorizontal="@dimen/smallMargin"
+                    android:layout_marginVertical="@dimen/normalMargin"
+                    app:cardCornerRadius="@dimen/radius_card">
+
+                    <TextView
+                        android:id="@+id/historyNewIndex"
+                        style="@style/viewParent"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/smallMargin"
+                        android:letterSpacing="0.15"
+                        android:textColor="@color/darkTextColor"
+                        android:textSize="@dimen/normalTextSize"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout style="@style/viewParent">
+
+                <TextView
+                    android:layout_width="@dimen/card_title_width"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:textAlignment="textEnd"
+                    android:letterSpacing="0.01"
+                    android:text="@string/date"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="@dimen/normalTextSize"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/historyDate"
+                    style="@style/viewParent"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:letterSpacing="0.01"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="@dimen/normalTextSize" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

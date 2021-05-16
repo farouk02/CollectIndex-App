@@ -8,6 +8,6 @@ public class Initialize {
     public static String WEBSITE_URL = "https://www.ade.dz/e-paiement/";
 
 
-    public static String HOST_NAME = "http://192.168.1.10/ade";
+    public static String HOST_NAME = "http://192.168.1.100/ade";
 
 }
