@@ -32,7 +32,7 @@
     </style>
 
     <style name="modifiedEditText" parent="parent">
-        <item name="android:textSize">@dimen/newsMoreTextSize</item>
+        <item name="android:textSize">@dimen/normalTextSize</item>
         <item name="android:backgroundTint">@color/primaryTextColor</item>
     </style>
 
@@ -40,12 +40,12 @@
         <item name="android:background">@drawable/button_background_blue</item>
         <item name="android:textColor">@color/whiteTextColor</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/newsMoreTextSize</item>
+        <item name="android:textSize">@dimen/normalTextSize</item>
         <item name="android:textAlignment">center</item>
     </style>
 
     <style name="spinnerHintText" parent="parent">
-        <item name="android:textSize">@dimen/newsMoreTextSize</item>
+        <item name="android:textSize">@dimen/normalTextSize</item>
         <item name="android:textColor">@color/accentColor</item>
         <item name="android:paddingLeft">5dp</item>
     </style>
