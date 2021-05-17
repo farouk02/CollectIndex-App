@@ -270,8 +270,26 @@ public class RegisterActivity extends AppCompatActivity {
                                     error.setText(getString(R.string.fields_required));
                                     error.setVisibility(View.VISIBLE);
                                     break;
+                                case "7":
+
+                                    this.client.setEnabled(false);
+                                    this.email.setEnabled(false);
+                                    this.username.setEnabled(false);
+                                    this.password.setEnabled(false);
+
+                                    error.setText(getString(R.string.verify_email));
+                                    error.setVisibility(View.VISIBLE);
+                                    break;
+                                case "8":
+
+                                    this.client.setEnabled(true);
+                                    this.username.setEnabled(true);
+                                    this.password.setEnabled(true);
+
+                                    error.setText(getString(R.string.field_inccorect, getString(R.string.email_hint)));
+                                    error.setVisibility(View.VISIBLE);
+                                    break;
                             }
-                            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
                         }
                     }
                     //End Write and Read data with URL

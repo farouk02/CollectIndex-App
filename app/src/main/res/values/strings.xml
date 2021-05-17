@@ -60,4 +60,5 @@
     <string name="error_add_index">Failed to add index, add it later!</string>
     <string name="error_update_counter">Failed to update counter</string>
     <string name="date">Date</string>
+    <string name="verify_email">please verify your email</string>
 </resources>
