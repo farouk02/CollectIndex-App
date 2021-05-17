@@ -211,4 +211,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ade.dz/e-paiement/")));
     }
 
+    public void gotoVerifyEmail(View view) {
+        startActivity(new Intent(this, VerifyEmailActivity.class));
+        overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
+    }
 }

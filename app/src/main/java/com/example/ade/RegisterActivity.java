@@ -1,6 +1,5 @@
 package com.example.ade;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -57,7 +56,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -283,6 +281,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 case "8":
 
                                     this.client.setEnabled(true);
+                                    this.email.setEnabled(true);
+                                    this.email.getEditText().setText("");
                                     this.username.setEnabled(true);
                                     this.password.setEnabled(true);
 
@@ -300,6 +300,72 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
         });
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String client, email, username, password;
+        client = Objects.requireNonNull(this.client.getEditText()).getText().toString().toUpperCase();
+        email = Objects.requireNonNull(this.email.getEditText()).getText().toString().toLowerCase();
+        username = Objects.requireNonNull(this.username.getEditText()).getText().toString().toLowerCase();
+        password = Objects.requireNonNull(this.password.getEditText()).getText().toString();
+
+            //send request
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(() -> {
+                //Starting Write and Read data with URL
+                //Creating array for parameters
+                String[] field = new String[4];
+                field[0] = "code_client";
+                field[1] = "email";
+                field[2] = "username";
+                field[3] = "password";
+                //Creating array for data
+                String[] data = new String[4];
+                data[0] = client;
+                data[1] = email;
+                data[2] = username;
+                data[3] = password;
+                PutData putData = new PutData(Initialize.HOST_NAME + "/signup.php", "POST", field, data);
+                if (putData.startPut()) {
+                    if (putData.onComplete()) {
+                        String result = putData.getResult();
+                        //End ProgressBar (Set visibility to GONE)
+                        switch (result) {
+                            case "1":
+                                startActivity(new Intent(this, LoginActivity.class));
+                                Toast.makeText(getApplicationContext(), getString(R.string.sign_up_complete), Toast.LENGTH_SHORT).show();
+                                finish();
+                                break;
+                            case "7":
+
+                                this.client.setEnabled(false);
+                                this.email.setEnabled(false);
+                                this.username.setEnabled(false);
+                                this.password.setEnabled(false);
+
+                                error.setText(getString(R.string.verify_email));
+                                error.setVisibility(View.VISIBLE);
+                                break;
+                            case "8":
+
+                                this.client.setEnabled(true);
+                                this.email.setEnabled(true);
+                                this.email.getEditText().setText("");
+                                this.username.setEnabled(true);
+                                this.password.setEnabled(true);
+
+                                error.setText(getString(R.string.field_inccorect, getString(R.string.email_hint)));
+                                error.setVisibility(View.VISIBLE);
+                                break;
+                        }
+                    }
+                }
+                //End Write and Read data with URL
+            });
 
     }
 

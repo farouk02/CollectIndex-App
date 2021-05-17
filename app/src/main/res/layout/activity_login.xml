@@ -82,6 +82,7 @@
                 style="@style/viewParent"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
+                android:onClick="gotoVerifyEmail"
                 android:text="@string/forgot_password"
                 android:textColor="@color/primaryTextColor"
                 android:textSize="@dimen/normalTextSize" />

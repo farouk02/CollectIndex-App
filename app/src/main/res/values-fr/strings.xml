@@ -2,15 +2,18 @@
 <resources>
     <string name="app_name">Collect Index</string>
 
-    <string name="mobile_number_hint">Numero de telephone</string>
-    <string name="username_hint">Nom d\'utilisateur OU adresse mail</string>
+    <string name="mobile_number_hint">Numéro de téléphone</string>
+    <string name="username_hint">Nom d\'utilisateur</string>
     <string name="password_hint">Mot de pass</string>
     <string name="forgot_password">mot de pass oblier?</string>
-    <string name="login">Sign In</string>
-    <string name="register">Registrer</string>
-    <string name="new_user_register_now">Nouveau Utilisateur? Registrer</string>
-    <string name="already_have_an_account">deja a un compte?</string>
-    <string name="follow_us">Suivi nous!</string>
+    <string name="login">S\'identifier</string>
+    <string name="register">S\'inscrire</string>
+    <string name="new_user_register_now">Nouveau Utilisateur? S\'incrire</string>
+    <string name="already_have_an_account">Vous avez déjà un compte?</string>
+    <string name="follow_us">Suivez nous!</string>
+    <string name="reset_password">Réinitialiser
+        \nle
+        \nmot de passe</string>
     <string name="alreadyHaveAccount">deja
         \na un
         \ncompte?</string>
@@ -25,7 +28,7 @@
     <string name="field_under">%1$s doit être inferieur à %2$d caractères</string>
     <string name="field_greater">%1$s doit être superieur à %2$d caractères</string>
     <string name="field_between">%1$s doit être entre %2$d et %3$d caractères</string>
-    <string name="next">Continue</string>
+    <string name="next">Suivant</string>
     <string name="username_or_password_incorrect">Nom d\'utilisateur ou Mot de pass incorrect!</string>
     <string name="email_hint">Address mail</string>
 
@@ -36,18 +39,21 @@
     <string name="fields_invalid">Les chemain invalide</string>
     <string name="field_already_token">%1$s est deja utiliser!</string>
     <string name="something_wrong">Mall fonction.  SVP veuillez réessayer plus tard!</string>
-    <string name="already_signed_up">vous avez déjà inscrit!</string>
+    <string name="already_signed_up">Vous êtes déjà inscrit</string>
     <string name="field_inccorect">%1$s incorrecte!</string>
-    <string name="fields_required">All fields are required</string>
+    <string name="fields_required">Tous les champs sont requis</string>
     <string name="address">Addresse</string>
     <string name="old_index">Ancien index</string>
     <string name="new_index">Nouvel index</string>
     <string name="add_index">Ajouter index</string>
-    <string name="add">Ajouter</string>
+    <string name="add">AJOUTER</string>
     <string name="show_history">voir l\'historique</string>
     <string name="cant_add_index_today">Vous ne pouvez pas ajouter d\'index aujourd\'hui.</string>
     <string name="error_add_index">Échec de l\'ajout de l\'index, ajoutez-le plus tard!</string>
     <string name="error_update_counter">Échec de MAJ du compteur.</string>
-    <string name="date">Datte</string>
+    <string name="date">Date</string>
     <string name="verify_email">SVP vérifier votre address email!</string>
+    <string name="sign_up_complete">Inscription terminée avec succès</string>
+    <string name="rest">Réinitialiser</string>
+    <string name="verify">Vérifier</string>
 </resources>

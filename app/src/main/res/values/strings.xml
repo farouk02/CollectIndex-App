@@ -4,7 +4,7 @@
 
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
-    <string name="register">Register</string>
+    <string name="register">Sign up</string>
     <string name="next">Next</string>
     <string name="client_code">Client Number</string>
     <string name="counter_num">Counter Num</string>
@@ -16,8 +16,8 @@
         \nhave an
         \nAccount?</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="login">Login</string>
-    <string name="new_user_register_now">New user? Register Now</string>
+    <string name="login">Sign In</string>
+    <string name="new_user_register_now">New user? Sign up Now</string>
     <string name="follow_us">Follow Us!</string>
     <string name="logo_ade" translatable="false">Logo ADE</string>
     <string name="goto_register_activity" translatable="false">goto register Activity</string>
@@ -28,6 +28,8 @@
         \nyour first
         \nstep with
         \nus!</string>
+    <string name="reset_password">Reset
+        \npassword</string>
     <string name="already_have_an_account">Already have an account?</string>
 
 
@@ -60,5 +62,8 @@
     <string name="error_add_index">Failed to add index, add it later!</string>
     <string name="error_update_counter">Failed to update counter</string>
     <string name="date">Date</string>
-    <string name="verify_email">please verify your email</string>
+    <string name="verify_email">please verify your email!</string>
+    <string name="sign_up_complete">Sign up completed successfully</string>
+    <string name="rest">Reset</string>
+    <string name="verify">verify</string>
 </resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/bg_primary_color"
+    android:focusableInTouchMode="true"
+    android:gravity="top"
+    tools:context=".VerifyEmailActivity">
+
+    <ScrollView
+        style="@style/parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            style="@style/parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <RelativeLayout style="@style/parent">
+
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/reset_password" />
+
+                <ImageView
+                    style="@style/viewParent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/logo_ade"
+                    android:src="@drawable/ic_hero" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textViewErrorVerify"
+                style="@style/parent"
+                android:layout_marginTop="@dimen/largeMargin"
+                android:text="@string/username_or_password_incorrect"
+                android:textColor="@color/errorColor"
+                android:textSize="@dimen/normalTextSize"
+                android:visibility="invisible" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputVerifyEmail"
+                style="@style/parent"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/editTextVerifyEmail"
+                    style="@style/modifiedEditText"
+                    android:autofillHints="faroukious0@gmail.com"
+                    android:hint="@string/email_hint"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                android:id="@+id/cirVerifyButton"
+                style="@style/loginButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/largeMargin"
+                android:text="@string/verify"
+                app:initialCornerAngle="27dp"
+                app:spinning_bar_color="#FFF"
+                app:spinning_bar_padding="6dp"
+                app:spinning_bar_width="4dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>
