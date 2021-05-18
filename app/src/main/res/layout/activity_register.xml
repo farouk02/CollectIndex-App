@@ -11,9 +11,10 @@
     tools:context=".RegisterActivity">
 
 
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true">
 
         <LinearLayout
@@ -192,4 +193,11 @@
         android:src="@drawable/ic_back_img"
         android:contentDescription="@string/goto_login_activity" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/email"/>
+    </RelativeLayout>
 </RelativeLayout>

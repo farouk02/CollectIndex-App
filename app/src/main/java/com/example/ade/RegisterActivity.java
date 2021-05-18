@@ -11,10 +11,12 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
@@ -33,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
     TextInputLayout username;
     TextInputLayout password;
     CircularProgressButton register;
+    CardView sentEmailLayout;
 
     private boolean clientValidate = false;
     private boolean emailValidate = false;
@@ -69,6 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
         username = findViewById(R.id.textInputUsername);
         password = findViewById(R.id.textInputPassword);
         register = findViewById(R.id.cirRegisterButton);
+        sentEmailLayout = findViewById(R.id.emailLayout);
 
 
         Objects.requireNonNull(client.getEditText()).addTextChangedListener(new TextWatcher() {
@@ -275,6 +279,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     this.username.setEnabled(false);
                                     this.password.setEnabled(false);
 
+                                    this.sentEmailLayout.setVisibility(View.VISIBLE);
                                     error.setText(getString(R.string.verify_email));
                                     error.setVisibility(View.VISIBLE);
                                     break;

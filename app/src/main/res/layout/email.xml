@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/emailLayout"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/medMargin"
+    android:visibility="gone"
+    app:cardCornerRadius="@dimen/radius_card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/bg_accent_color"
+        android:gravity="center"
+
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medMargin"
+        android:src="@drawable/ic_info"
+        android:contentDescription="@string/info_icon" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/topTextSize"
+        android:layout_marginBottom="@dimen/medMargin"
+        android:layout_marginHorizontal="@dimen/medMargin"
+        android:textAlignment="center"
+        android:textColor="@color/whiteTextColor"
+        android:text="@string/verification_link"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -9,9 +9,12 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
@@ -24,10 +27,10 @@ import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 
 public class VerifyEmailActivity extends AppCompatActivity {
 
-    CircularProgressButton reset;
+    CircularProgressButton verify;
     TextInputLayout email;
     TextView error;
-
+    CardView sentEmailLayout;
 
     private boolean emailValidate = false;
 
@@ -53,8 +56,9 @@ public class VerifyEmailActivity extends AppCompatActivity {
 
 
         email = findViewById(R.id.textInputVerifyEmail);
-        reset = findViewById(R.id.cirVerifyButton);
+        verify = findViewById(R.id.cirVerifyButton);
         error = findViewById(R.id.textViewErrorVerify);
+        sentEmailLayout = findViewById(R.id.emailLayout);
 
         Objects.requireNonNull(email.getEditText()).addTextChangedListener(new TextWatcher() {
 
@@ -92,7 +96,7 @@ public class VerifyEmailActivity extends AppCompatActivity {
         });
 
 
-        reset.setOnClickListener(v -> {
+        verify.setOnClickListener(v -> {
 
             String email;
             email = this.email.getEditText().getText().toString().toLowerCase();
@@ -114,6 +118,7 @@ public class VerifyEmailActivity extends AppCompatActivity {
                         if (putData.onComplete()) {
                             String result = putData.getResult();
                             //End ProgressBar (Set visibility to GONE)
+
                             switch (result) {
                                 case "1":
                                     Intent intent = new Intent(this, ResetActivity.class);
@@ -138,6 +143,7 @@ public class VerifyEmailActivity extends AppCompatActivity {
 
                                     this.email.setEnabled(false);
 
+                                    this.sentEmailLayout.setVisibility(View.VISIBLE);
                                     error.setText(getString(R.string.verify_email));
                                     error.setVisibility(View.VISIBLE);
                                     break;

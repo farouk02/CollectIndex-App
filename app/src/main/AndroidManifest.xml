@@ -22,15 +22,14 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
         tools:targetApi="m">
-        <activity android:name=".ResetActivity"></activity>
+        <activity
+            android:name=".ResetActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".VerifyEmailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".HistoryActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".EmailVerificationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterActivity"

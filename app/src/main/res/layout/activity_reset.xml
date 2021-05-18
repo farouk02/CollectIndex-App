@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:focusableInTouchMode="true"
+    android:background="@color/bg_accent_color"
     tools:context=".ResetActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            style="@style/parent"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <RelativeLayout
+                style="@style/parent">
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/reset_password"
+                    android:textColor="@color/whiteTextColor" />
+                <ImageView
+
+                    style="@style/viewParent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:paddingBottom="20dp"
+                    android:src="@drawable/ic_hero"
+                    android:contentDescription="@string/logo_ade" />
+            </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                style="@style/parent"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/whiteTextColor"
+                app:cardCornerRadius="27dp">
+                <LinearLayout
+                    style="@style/parent"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewErrorReset"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/largeMargin"
+                        android:textColor="@color/errorColor"
+                        android:visibility="invisible"
+                        android:textSize="@dimen/normalTextSize"
+                        android:text="@string/username_or_password_incorrect"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputPasswordReset"
+                    app:errorEnabled="true"
+                    app:passwordToggleEnabled="true"
+                    style="@style/parent">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextPasswordReset"
+                        style="@style/modifiedEditText"
+                        android:hint="@string/password_hint"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:autofillHints="" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputRepeatPasswordReset"
+                    app:errorEnabled="true"
+                    app:passwordToggleEnabled="true"
+                    style="@style/parent">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextRepeatPasswordReset"
+                        style="@style/modifiedEditText"
+                        android:hint="@string/repeat_password_hint"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:autofillHints="" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                        android:id="@+id/cirResetButton"
+                        style="@style/loginButton"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/largeMargin"
+                        android:text="@string/reset"
+                        app:initialCornerAngle="27dp"
+                        app:spinning_bar_color="#FFF"
+                        app:spinning_bar_padding="6dp"
+                        app:spinning_bar_width="4dp" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -4,18 +4,18 @@
 
     <string name="mobile_number_hint">Numéro de téléphone</string>
     <string name="username_hint">Nom d\'utilisateur</string>
-    <string name="password_hint">Mot de pass</string>
-    <string name="forgot_password">mot de pass oblier?</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="forgot_password">mot de passe oblier?</string>
     <string name="login">S\'identifier</string>
     <string name="register">S\'inscrire</string>
     <string name="new_user_register_now">Nouveau Utilisateur? S\'incrire</string>
     <string name="already_have_an_account">Vous avez déjà un compte?</string>
     <string name="follow_us">Suivez nous!</string>
     <string name="reset_password">Réinitialiser
-        \nle
-        \nmot de passe</string>
-    <string name="alreadyHaveAccount">deja
-        \na un
+        \nle mot
+        \nde passe</string>
+    <string name="alreadyHaveAccount">Vous avez
+        \ndéjà un
         \ncompte?</string>
     <string name="your_first_step_with_us">C\'est
         \nvotre premier
@@ -29,7 +29,7 @@
     <string name="field_greater">%1$s doit être superieur à %2$d caractères</string>
     <string name="field_between">%1$s doit être entre %2$d et %3$d caractères</string>
     <string name="next">Suivant</string>
-    <string name="username_or_password_incorrect">Nom d\'utilisateur ou Mot de pass incorrect!</string>
+    <string name="username_or_password_incorrect">Nom d\'utilisateur ou Mot de passe incorrect!</string>
     <string name="email_hint">Address mail</string>
 
     <string name="field_invalid">%1$s invalide</string>
@@ -54,6 +54,11 @@
     <string name="date">Date</string>
     <string name="verify_email">SVP vérifier votre address email!</string>
     <string name="sign_up_complete">Inscription terminée avec succès</string>
-    <string name="rest">Réinitialiser</string>
+    <string name="reset">Réinitialiser</string>
     <string name="verify">Vérifier</string>
+    <string name="repeat_password_hint">Répéter le mot de passe</string>
+    <string name="not_matched">%1$s ne correspond pas.</string>
+    <string name="error_update_password">Échec de MAJ du mot de passe</string>
+    <string name="password_secces">Le mot de passe a été réinitialisé avec succès</string>
+    <string name="verification_link">Vous devez vérifier votre adresse e-mail! Connectez-vous à votre compte de messagerie et cliquez sur le lien de vérification</string>
 </resources>
