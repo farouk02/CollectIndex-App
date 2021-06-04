@@ -68,8 +68,7 @@
                         style="@style/modifiedEditText"
                         android:hint="@string/password_hint"
                         android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:autofillHints="" />
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -82,8 +81,7 @@
                         style="@style/modifiedEditText"
                         android:hint="@string/repeat_password_hint"
                         android:inputType="textPassword"
-                        android:maxLines="1"
-                        android:autofillHints="" />
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton

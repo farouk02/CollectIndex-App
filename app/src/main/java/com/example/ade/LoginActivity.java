@@ -129,26 +129,27 @@ public class LoginActivity extends AppCompatActivity {
 
             if (usernameValidate) {
                 if (passwordValidate) {
+                    try {
 
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(() -> {
-                        //Starting Write and Read data with URL
-                        //Creating array for parameters
-                        String[] field = new String[2];
-                        field[0] = "username";
-                        field[1] = "password";
-                        //Creating array for data
-                        String[] data = new String[2];
-                        data[0] = username;
-                        data[1] = password;
+                        Handler handler = new Handler(Looper.getMainLooper());
+                        handler.post(() -> {
+                            //Starting Write and Read data with URL
+                            //Creating array for parameters
+                            String[] field = new String[2];
+                            field[0] = "username";
+                            field[1] = "password";
+                            //Creating array for data
+                            String[] data = new String[2];
+                            data[0] = username;
+                            data[1] = password;
 
 
-                        PutData putData = new PutData(Initialize.HOST_NAME + "/login.php", "POST", field, data);
-                        if (putData.startPut()) {
-                            if (putData.onComplete()) {
+                            PutData putData = new PutData(Initialize.HOST_NAME + "/login.php", "POST", field, data);
+                            if (putData.startPut()) {
+                                if (putData.onComplete()) {
 
                                     String result = putData.getResult();
-                                    try {    //End ProgressBar (Set visibility to GONE)
+                                    //End ProgressBar (Set visibility to GONE)
                                     if (result.equals("2")) {
                                         error.setText(getString(R.string.username_or_password_incorrect));
                                         error.setVisibility(View.VISIBLE);
@@ -165,14 +166,14 @@ public class LoginActivity extends AppCompatActivity {
                                         startActivity(intent);
                                         finish();
                                     }
-                                } catch (Exception e) {
-                                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
                                 }
                             }
-                        }
 
-                        //End Write and Read data with URL
-                    });
+                            //End Write and Read data with URL
+                        });
+                    } catch (Exception e) {
+                        Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
                 } else {
                     error.setText(getString(R.string.fields_invalid));
                     error.setVisibility(View.VISIBLE);
