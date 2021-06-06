@@ -155,13 +155,15 @@ public class MainActivity extends AppCompatActivity {
                                                     handler2.post(() -> {
                                                         //Starting Write and Read data with URL
                                                         //Creating array for parameters
-                                                        String[] field2 = new String[2];
+                                                        String[] field2 = new String[3];
                                                         field2[0] = "counter_num";
-                                                        field2[1] = "new_index";
+                                                        field2[1] = "old_index";
+                                                        field2[2] = "new_index";
                                                         //Creating array for data
-                                                        String[] data2 = new String[2];
+                                                        String[] data2 = new String[3];
                                                         data2[0] = value.counter_num;
-                                                        data2[1] = etNew.getText().toString();
+                                                        data2[1] = tvOld.getText().toString();
+                                                        data2[2] = etNew.getText().toString();
 
 
                                                         PutData putData2 = new PutData(Initialize.HOST_NAME + "/addIndex.php", "POST", field2, data2);
