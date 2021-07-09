@@ -66,9 +66,15 @@ public class MainActivity extends AppCompatActivity {
 
                         for (Counter value : counter) {
                             View v = getLayoutInflater().inflate(R.layout.counter_details, null);
-                            TextView tvAddress = v.findViewById(R.id.counterAddress);
 
+                            TextView tvAddress = v.findViewById(R.id.counterAddress);
                             tvAddress.setText(value.address);
+
+                            TextView tvStatus = v.findViewById(R.id.counterStatus);
+                            if (value.status == 1)
+                                tvStatus.setText(R.string.open);
+                            else
+                                tvStatus.setText(R.string.block);
 
                             TextView tvCNum = v.findViewById(R.id.counterNum);
                             tvCNum.setText(value.counter_num);
@@ -78,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
 
 
                             TextView addIndexButton = v.findViewById(R.id.addIndexButton);
+                            if (value.status == 0){
+                                addIndexButton.setVisibility(View.GONE);
+                            } else {
+                                addIndexButton.setVisibility(View.VISIBLE);
+                            }
 
                             LinearLayout addIndexLayout = v.findViewById(R.id.addIndexLayout);
 
@@ -89,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
 
                             historyButton.setOnClickListener(v1 -> {
                                 Bundle bundle1 = new Bundle();
-                                bundle1.putString("name",bundle.getString("name"));
-                                bundle1.putString("code_client",bundle.getString("code_client"));
-                                bundle1.putString("counter_num",value.counter_num);
+                                bundle1.putString("name", bundle.getString("name"));
+                                bundle1.putString("code_client", bundle.getString("code_client"));
+                                bundle1.putString("counter_num", value.counter_num);
 
                                 Intent intent = new Intent(this, HistoryActivity.class);
                                 intent.putExtras(bundle1);
@@ -99,34 +110,36 @@ public class MainActivity extends AppCompatActivity {
                             });
 
                             addIndexButton.setOnClickListener(v1 -> {
-                                //verify date permission
-                                Handler handler1 = new Handler(Looper.getMainLooper());
-                                handler1.post(() -> {
-                                    //Starting Write and Read data with URL
-                                    //Creating array for parameters
-                                    String[] field1 = new String[1];
-                                    field1[0] = "counter_num";
-                                    //Creating array for data
-                                    String[] data1 = new String[1];
-                                    data1[0] = "true";
-                                    PutData putData1 = new PutData(Initialize.HOST_NAME + "/isCollectDate.php", "POST", field1, data1);
-                                    if (putData1.startPut()) {
-                                        if (putData1.onComplete()) {
-                                            String result1 = putData1.getResult();
-                                            //End ProgressBar (Set visibility to GONE)
-                                            if (result1.equals("1")) {
-                                                addIndexLayout.setVisibility(View.VISIBLE);
-                                                addIndexButton.setVisibility(View.INVISIBLE);
-                                            } else if (result1.equals("0")) {
-                                                Toast.makeText(this, getString(R.string.cant_add_index_today), Toast.LENGTH_LONG).show();
-                                            } else {
-                                                Toast.makeText(this, result1, Toast.LENGTH_LONG).show();
+                                if (value.status == 1) {
+                                    //verify date permission
+                                    Handler handler1 = new Handler(Looper.getMainLooper());
+                                    handler1.post(() -> {
+                                        //Starting Write and Read data with URL
+                                        //Creating array for parameters
+                                        String[] field1 = new String[1];
+                                        field1[0] = "counter_num";
+                                        //Creating array for data
+                                        String[] data1 = new String[1];
+                                        data1[0] = "true";
+                                        PutData putData1 = new PutData(Initialize.HOST_NAME + "/isCollectDate.php", "POST", field1, data1);
+                                        if (putData1.startPut()) {
+                                            if (putData1.onComplete()) {
+                                                String result1 = putData1.getResult();
+                                                //End ProgressBar (Set visibility to GONE)
+                                                if (result1.equals("1")) {
+                                                    addIndexLayout.setVisibility(View.VISIBLE);
+                                                    addIndexButton.setVisibility(View.INVISIBLE);
+                                                } else if (result1.equals("0")) {
+                                                    Toast.makeText(this, getString(R.string.cant_add_index_today), Toast.LENGTH_LONG).show();
+                                                } else {
+                                                    Toast.makeText(this, result1, Toast.LENGTH_LONG).show();
+                                                }
                                             }
                                         }
-                                    }
 
-                                    //End Write and Read data with URL
-                                });
+                                        //End Write and Read data with URL
+                                    });
+                                }
                             });
 
                             addButton.setOnClickListener(v1 -> {
@@ -175,7 +188,8 @@ public class MainActivity extends AppCompatActivity {
                                                                     case "1":
 
                                                                         tvOld.setText(etNew.getText().toString());
-                                                                        addIndexLayout.setVisibility(View.INVISIBLE);
+                                                                        addIndexLayout.setVisibility(View.GONE);
+                                                                        addIndexButton.setVisibility(View.VISIBLE);
                                                                         break;
                                                                     case "-1":
                                                                         Toast.makeText(this, getString(R.string.error_update_counter), Toast.LENGTH_LONG).show();

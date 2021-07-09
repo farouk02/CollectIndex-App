@@ -64,6 +64,28 @@
                     android:textSize="@dimen/normalTextSize" />
             </LinearLayout>
 
+            <LinearLayout style="@style/viewParent">
+
+                <TextView
+                    android:layout_width="@dimen/card_title_width"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:textAlignment="textEnd"
+                    android:letterSpacing="0.01"
+                    android:text="@string/status"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="@dimen/normalTextSize"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/counterStatus"
+                    style="@style/viewParent"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:letterSpacing="0.01"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="@dimen/normalTextSize" />
+            </LinearLayout>
+
             <LinearLayout
                 style="@style/viewParent"
                 android:layout_gravity="start"
@@ -112,7 +134,7 @@
 
             <LinearLayout
                 android:id="@+id/addIndexLayout"
-                android:visibility="invisible"
+                android:visibility="gone"
                 style="@style/viewParent"
                 android:layout_gravity="start"
                 android:gravity="center"
