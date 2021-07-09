@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">جمع الفهرس</string>
+    <string name="block">متوقف</string>
+    <string name="open">مفتوح</string>
+    <string name="status">الحالة</string>
+    <string name="verification_link">تحتاج إلى التحقق من عنوان بريدك الإلكتروني! سجّل الدخول إلى حساب بريدك الإلكتروني وانقر على رابط التحقق</string>
+    <string name="password_secces">تم إعادة تعيين كلمة المرور بنجاح</string>
+    <string name="error_update_password">فشل تحديث كلمة المرور</string>
+    <string name="repeat_password_hint">أعد كتابة كلمة المرور</string>
+    <string name="verify">تأكيد</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="sign_up_complete">اكتمل التسجيل بنجاح</string>
+    <string name="verify_email">يرجى التحقق من بريدك الإلكتروني!</string>
+    <string name="date">التاريخ</string>
+    <string name="error_update_counter">فشل تحديث العداد</string>
+    <string name="error_add_index">فشل إضافة الفهرس ، قم بإضافته لاحقًا!</string>
+    <string name="cant_add_index_today">لا يمكنك إضافة الفهرس اليوم</string>
+    <string name="show_history">عرض التأريخ</string>
+    <string name="add">إضافة</string>
+    <string name="add_index">إضافة فهرس</string>
+    <string name="new_index">الفهرس الجديد</string>
+    <string name="old_index">الفهرس القديم</string>
+    <string name="address">العنوان</string>
+    <string name="fields_required">جميع الحقول مطلوبة</string>
+    <string name="field_inccorect">%1$s غير صحيح</string>
+    <string name="already_signed_up">أنت مسجل بالفعل</string>
+    <string name="something_wrong">هناك خطب ما. الرجاء معاودة المحاولة في وقت لاحق!</string>
+    <string name="field_already_token">%1$s محجوز مسبقا!</string>
+    <string name="fields_invalid">الحقول غير صالحة</string>
+    <string name="not_matched">%1$s غير مطابق.</string>
+    <string name="no_spaces">يجب ألا يحتوي %1$s على مسافات</string>
+    <string name="password_requirement">على الأقل حرف كبير , حرف صغير و رقم</string>
+    <string name="field_at_least">يجب أن يحتوي %1$s على %2$d حرفًا على الأقل</string>
+    <string name="field_invalid">%1$s غير صالح</string>
+    <string name="username_or_password_incorrect">اسم المستخدم أو كلمة المرور غير صحيح!</string>
+    <string name="field_between">يجب أن يكون %1$s بين  %2$d و %3$d حرفًا</string>
+    <string name="username_hint">اسم المستخدم</string>
+    <string name="password_hint">كلمه المرور</string>
+    <string name="register">اشتراك</string>
+    <string name="next">التالي</string>
+    <string name="client_code">رقم الزبون</string>
+    <string name="counter_num">رقم العداد</string>
+    <string name="mobile_number_hint">رقم الهاتف</string>
+    <string name="email_hint">البريد الالكتروني</string>
+    <string name="forgot_password">هل نسيت كلمة المرور؟</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="new_user_register_now">مستخدم جديد؟ اشترك الآن</string>
+    <string name="follow_us">تابعنا!</string>
+    <string name="already_have_an_account">هل لديك حساب؟</string>
+    <string name="field_required">%1$s اجباري</string>
+    <string name="field_equal">يجب أن يحتوي %1$s على %2$d حرفًا</string>
+    <string name="field_under">"يجب أن يكون %1$s أقل من %2$d حرفًا "</string>
+    <string name="field_greater">يجب أن يكون %1$s أكثر من %2$d حرفًا</string>
+    <string name="reset_password">إعادة تعيين
+        \nكلمة المرور</string>
+    <string name="your_first_step_with_us">هذه
+        \nخطوتك
+        \nالاولى
+        \nمعنا!</string>
+    <string name="alreadyHaveAccount">لديك
+        \nحساب
+        \nمسبقا؟</string>
+</resources>

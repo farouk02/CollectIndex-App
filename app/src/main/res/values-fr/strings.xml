@@ -61,4 +61,7 @@
     <string name="error_update_password">Échec de MAJ du mot de passe</string>
     <string name="password_secces">Le mot de passe a été réinitialisé avec succès</string>
     <string name="verification_link">Vous devez vérifier votre adresse e-mail! Connectez-vous à votre compte de messagerie et cliquez sur le lien de vérification</string>
+    <string name="status">Statut</string>
+    <string name="open">En marche</string>
+    <string name="block">Bloqué</string>
 </resources>
